@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.8.10 on linux)" generated="20220123 18:59:14.030" rpa="false" schemaversion="2">
+<suite id="s1" name="ConcurrentUsersAPI" source="/home/sumankumars/PycharmProjects/RoboatAPIAutomation/TestCases/ConcurrentUsers/ConcurrentUsersAPI.robot">
+<test id="s1-t1" name="FilterUsing-CustomerId_HourLimitIs1">
+<kw name="Get Access Token with Base URL" library="GetAccessToken">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${access_token}</var>
+<arg>x-access-token=ab10a1c3-d1d6-477a-83bb-dc42cf167e62</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220123 18:59:14.128" level="INFO">${access_token} = {'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'}</msg>
+<status status="PASS" starttime="20220123 18:59:14.128" endtime="20220123 18:59:14.128"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>GetAdAnalytics</arg>
+<arg>${Base_URL}</arg>
+<arg>headers=${access_token}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220123 18:59:14.128" level="INFO">Creating Session using : alias=GetAdAnalytics, url=https://api-analytics.amagi.tv/, headers={'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220123 18:59:14.128" endtime="20220123 18:59:14.128"/>
+</kw>
+<status status="PASS" starttime="20220123 18:59:14.127" endtime="20220123 18:59:14.128"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>GetAdAnalytics</arg>
+<arg>${customer_1Hr}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220123 18:59:14.765" level="INFO">GET Request : url=https://api-analytics.amagi.tv/api/v2?type=concurrentUsers&amp;hoursLimit=1&amp;customerId=AMG00075 
+ path_url=/api/v2?type=concurrentUsers&amp;hoursLimit=1&amp;customerId=AMG00075 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'} 
+ body=None 
+ </msg>
+<msg timestamp="20220123 18:59:14.766" level="INFO">GET Response : url=https://api-analytics.amagi.tv/api/v2?type=concurrentUsers&amp;hoursLimit=1&amp;customerId=AMG00075 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'nginx', 'Date': 'Sun, 23 Jan 2022 13:29:14 GMT', 'Cache-Control': 'no-cache', 'Content-Encoding': 'gzip', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains;', 'X-Frame-Options': 'DENY', 'Vary': 'accept-encoding', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 bbc3aa4823685736954fc5a19b209a10.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'MAA51-C2', 'X-Amz-Cf-Id': 'kJ7AMpXw-f6_YAExtU-LBVMCw_DXAGp711YLEN9xGqnCFxXc76SRIg=='} 
+ body=[{"time":"2022-01-23T12:15:00.000Z","viewerCount":63930},{"time":"2022-01-23T12:16:00.000Z","viewerCount":63893},{"time":"2022-01-23T12:17:00.000Z","viewerCount":63396},{"time":"2022-01-23T12:18:00.000Z","viewerCount":63759},{"time":"2022-01-23T12:19:00.000Z","viewerCount":63663},{"time":"2022-01-23T12:20:00.000Z","viewerCount":64022},{"time":"2022-01-23T12:21:00.000Z","viewerCount":64024},{"time":"2022-01-23T12:22:00.000Z","viewerCount":63558},{"time":"2022-01-23T12:23:00.000Z","viewerCount":63951},{"time":"2022-01-23T12:24:00.000Z","viewerCount":64060},{"time":"2022-01-23T12:25:00.000Z","viewerCount":64369},{"time":"2022-01-23T12:26:00.000Z","viewerCount":64156},{"time":"2022-01-23T12:27:00.000Z","viewerCount":64322},{"time":"2022-01-23T12:28:00.000Z","viewerCount":64110},{"time":"2022-01-23T12:29:00.000Z","viewerCount":64800},{"time":"2022-01-23T12:30:00.000Z","viewerCount":65880},{"time":"2022-01-23T12:31:00.000Z","viewerCount":66005},{"time":"2022-01-23T12:32:00.000Z","viewerCount":65857},{"time":"2022-01-23T12:33:00.000Z","viewerCount":64943},{"time":"2022-01-23T12:34:00.000Z","viewerCount":65614},{"time":"2022-01-23T12:35:00.000Z","viewerCount":64982},{"time":"2022-01-23T12:36:00.000Z","viewerCount":65700},{"time":"2022-01-23T12:37:00.000Z","viewerCount":65585},{"time":"2022-01-23T12:38:00.000Z","viewerCount":65900},{"time":"2022-01-23T12:39:00.000Z","viewerCount":65462},{"time":"2022-01-23T12:40:00.000Z","viewerCount":65697},{"time":"2022-01-23T12:41:00.000Z","viewerCount":65804},{"time":"2022-01-23T12:42:00.000Z","viewerCount":65938},{"time":"2022-01-23T12:43:00.000Z","viewerCount":65780},{"time":"2022-01-23T12:44:00.000Z","viewerCount":65910},{"time":"2022-01-23T12:45:00.000Z","viewerCount":66020},{"time":"2022-01-23T12:46:00.000Z","viewerCount":66605},{"time":"2022-01-23T12:47:00.000Z","viewerCount":66537},{"time":"2022-01-23T12:48:00.000Z","viewerCount":66715},{"time":"2022-01-23T12:49:00.000Z","viewerCount":66882},{"time":"2022-01-23T12:50:00.000Z","viewerCount":67056},{"time":"2022-01-23T12:51:00.000Z","viewerCount":66830},{"time":"2022-01-23T12:52:00.000Z","viewerCount":66775},{"time":"2022-01-23T12:53:00.000Z","viewerCount":67111},{"time":"2022-01-23T12:54:00.000Z","viewerCount":66899},{"time":"2022-01-23T12:55:00.000Z","viewerCount":67386},{"time":"2022-01-23T12:56:00.000Z","viewerCount":67674},{"time":"2022-01-23T12:57:00.000Z","viewerCount":67984},{"time":"2022-01-23T12:58:00.000Z","viewerCount":68061},{"time":"2022-01-23T12:59:00.000Z","viewerCount":68064},{"time":"2022-01-23T13:00:00.000Z","viewerCount":68389},{"time":"2022-01-23T13:01:00.000Z","viewerCount":68329},{"time":"2022-01-23T13:02:00.000Z","viewerCount":68440},{"time":"2022-01-23T13:03:00.000Z","viewerCount":68275},{"time":"2022-01-23T13:04:00.000Z","viewerCount":68196},{"time":"2022-01-23T13:05:00.000Z","viewerCount":68029},{"time":"2022-01-23T13:06:00.000Z","viewerCount":68367},{"time":"2022-01-23T13:07:00.000Z","viewerCount":68398},{"time":"2022-01-23T13:08:00.000Z","viewerCount":68611},{"time":"2022-01-23T13:09:00.000Z","viewerCount":68785},{"time":"2022-01-23T13:10:00.000Z","viewerCount":68957},{"time":"2022-01-23T13:11:00.000Z","viewerCount":69134},{"time":"2022-01-23T13:12:00.000Z","viewerCount":69128},{"time":"2022-01-23T13:13:00.000Z","viewerCount":69394},{"time":"2022-01-23T13:14:00.000Z","viewerCount":69615}] 
+ </msg>
+<msg timestamp="20220123 18:59:14.766" level="INFO">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-analytics.amagi.tv'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220123 18:59:14.766" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220123 18:59:14.128" endtime="20220123 18:59:14.766"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 18:59:14.767" endtime="20220123 18:59:14.768"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 18:59:14.768" endtime="20220123 18:59:14.770"/>
+</kw>
+<tag>Sanity</tag>
+<status status="PASS" starttime="20220123 18:59:14.126" endtime="20220123 18:59:14.770"/>
+</test>
+<test id="s1-t2" name="FilterUsing-ChannelId_HourLimitIs1">
+<kw name="Get Access Token with Base URL" library="GetAccessToken">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${access_token}</var>
+<arg>x-access-token=ab10a1c3-d1d6-477a-83bb-dc42cf167e62</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220123 18:59:14.771" level="INFO">${access_token} = {'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'}</msg>
+<status status="PASS" starttime="20220123 18:59:14.770" endtime="20220123 18:59:14.771"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>GetAdAnalytics</arg>
+<arg>${Base_URL}</arg>
+<arg>headers=${access_token}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220123 18:59:14.771" level="INFO">Creating Session using : alias=GetAdAnalytics, url=https://api-analytics.amagi.tv/, headers={'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220123 18:59:14.771" endtime="20220123 18:59:14.771"/>
+</kw>
+<status status="PASS" starttime="20220123 18:59:14.770" endtime="20220123 18:59:14.771"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>GetAdAnalytics</arg>
+<arg>${channel_1Hr}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220123 18:59:15.092" level="INFO">GET Request : url=https://api-analytics.amagi.tv/api/v2?type=concurrentUsers&amp;hoursLimit=1&amp;channelId=amg00491-fandango-rottentomatoesroku-rokuus 
+ path_url=/api/v2?type=concurrentUsers&amp;hoursLimit=1&amp;channelId=amg00491-fandango-rottentomatoesroku-rokuus 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'} 
+ body=None 
+ </msg>
+<msg timestamp="20220123 18:59:15.092" level="INFO">GET Response : url=https://api-analytics.amagi.tv/api/v2?type=concurrentUsers&amp;hoursLimit=1&amp;channelId=amg00491-fandango-rottentomatoesroku-rokuus 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'nginx', 'Date': 'Sun, 23 Jan 2022 13:29:15 GMT', 'Cache-Control': 'no-cache', 'Content-Encoding': 'gzip', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains;', 'X-Frame-Options': 'DENY', 'Vary': 'accept-encoding', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 58957a4b61f53236aa226f329eb22392.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'MAA51-C2', 'X-Amz-Cf-Id': 'h4x5tUBzNebnPliWW5A93r2dxbfSAqdWMmndGEruJ1kRV9mZ2B25Ug=='} 
+ body=[{"time":"2022-01-23T12:15:00.000Z","viewerCount":53},{"time":"2022-01-23T12:16:00.000Z","viewerCount":51},{"time":"2022-01-23T12:17:00.000Z","viewerCount":50},{"time":"2022-01-23T12:18:00.000Z","viewerCount":43},{"time":"2022-01-23T12:19:00.000Z","viewerCount":49},{"time":"2022-01-23T12:20:00.000Z","viewerCount":44},{"time":"2022-01-23T12:21:00.000Z","viewerCount":58},{"time":"2022-01-23T12:22:00.000Z","viewerCount":55},{"time":"2022-01-23T12:23:00.000Z","viewerCount":48},{"time":"2022-01-23T12:24:00.000Z","viewerCount":48},{"time":"2022-01-23T12:25:00.000Z","viewerCount":48},{"time":"2022-01-23T12:26:00.000Z","viewerCount":50},{"time":"2022-01-23T12:27:00.000Z","viewerCount":54},{"time":"2022-01-23T12:28:00.000Z","viewerCount":52},{"time":"2022-01-23T12:29:00.000Z","viewerCount":61},{"time":"2022-01-23T12:30:00.000Z","viewerCount":47},{"time":"2022-01-23T12:31:00.000Z","viewerCount":47},{"time":"2022-01-23T12:32:00.000Z","viewerCount":49},{"time":"2022-01-23T12:33:00.000Z","viewerCount":50},{"time":"2022-01-23T12:34:00.000Z","viewerCount":51},{"time":"2022-01-23T12:35:00.000Z","viewerCount":55},{"time":"2022-01-23T12:36:00.000Z","viewerCount":66},{"time":"2022-01-23T12:37:00.000Z","viewerCount":62},{"time":"2022-01-23T12:38:00.000Z","viewerCount":58},{"time":"2022-01-23T12:39:00.000Z","viewerCount":50},{"time":"2022-01-23T12:40:00.000Z","viewerCount":51},{"time":"2022-01-23T12:41:00.000Z","viewerCount":50},{"time":"2022-01-23T12:42:00.000Z","viewerCount":59},{"time":"2022-01-23T12:43:00.000Z","viewerCount":59},{"time":"2022-01-23T12:44:00.000Z","viewerCount":55},{"time":"2022-01-23T12:45:00.000Z","viewerCount":56},{"time":"2022-01-23T12:46:00.000Z","viewerCount":63},{"time":"2022-01-23T12:47:00.000Z","viewerCount":67},{"time":"2022-01-23T12:48:00.000Z","viewerCount":60},{"time":"2022-01-23T12:49:00.000Z","viewerCount":59},{"time":"2022-01-23T12:50:00.000Z","viewerCount":57},{"time":"2022-01-23T12:51:00.000Z","viewerCount":66},{"time":"2022-01-23T12:52:00.000Z","viewerCount":57},{"time":"2022-01-23T12:53:00.000Z","viewerCount":61},{"time":"2022-01-23T12:54:00.000Z","viewerCount":70},{"time":"2022-01-23T12:55:00.000Z","viewerCount":61},{"time":"2022-01-23T12:56:00.000Z","viewerCount":71},{"time":"2022-01-23T12:57:00.000Z","viewerCount":74},{"time":"2022-01-23T12:58:00.000Z","viewerCount":63},{"time":"2022-01-23T12:59:00.000Z","viewerCount":62},{"time":"2022-01-23T13:00:00.000Z","viewerCount":67},{"time":"2022-01-23T13:01:00.000Z","viewerCount":83},{"time":"2022-01-23T13:02:00.000Z","viewerCount":76},{"time":"2022-01-23T13:03:00.000Z","viewerCount":67},{"time":"2022-01-23T13:04:00.000Z","viewerCount":72},{"time":"2022-01-23T13:05:00.000Z","viewerCount":76},{"time":"2022-01-23T13:06:00.000Z","viewerCount":77},{"time":"2022-01-23T13:07:00.000Z","viewerCount":78},{"time":"2022-01-23T13:08:00.000Z","viewerCount":67},{"time":"2022-01-23T13:09:00.000Z","viewerCount":88},{"time":"2022-01-23T13:10:00.000Z","viewerCount":90},{"time":"2022-01-23T13:11:00.000Z","viewerCount":91},{"time":"2022-01-23T13:12:00.000Z","viewerCount":87},{"time":"2022-01-23T13:13:00.000Z","viewerCount":89}] 
+ </msg>
+<msg timestamp="20220123 18:59:15.093" level="INFO">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-analytics.amagi.tv'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220123 18:59:15.093" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220123 18:59:14.771" endtime="20220123 18:59:15.093"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 18:59:15.093" endtime="20220123 18:59:15.094"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 18:59:15.095" endtime="20220123 18:59:15.096"/>
+</kw>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20220123 18:59:14.770" endtime="20220123 18:59:15.096"/>
+</test>
+<test id="s1-t3" name="FilterUsing-CustomerId_HourLimitIs12">
+<kw name="Get Access Token with Base URL" library="GetAccessToken">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${access_token}</var>
+<arg>x-access-token=ab10a1c3-d1d6-477a-83bb-dc42cf167e62</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220123 18:59:15.099" level="INFO">${access_token} = {'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'}</msg>
+<status status="PASS" starttime="20220123 18:59:15.098" endtime="20220123 18:59:15.099"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>GetAdAnalytics</arg>
+<arg>${Base_URL}</arg>
+<arg>headers=${access_token}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220123 18:59:15.100" level="INFO">Creating Session using : alias=GetAdAnalytics, url=https://api-analytics.amagi.tv/, headers={'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220123 18:59:15.099" endtime="20220123 18:59:15.100"/>
+</kw>
+<status status="PASS" starttime="20220123 18:59:15.098" endtime="20220123 18:59:15.100"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>GetAdAnalytics</arg>
+<arg>${customer_12Hr}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220123 18:59:15.809" level="INFO">GET Request : url=https://api-analytics.amagi.tv/api/v2?type=concurrentUsers&amp;hoursLimit=12&amp;customerId=AMG00075 
+ path_url=/api/v2?type=concurrentUsers&amp;hoursLimit=12&amp;customerId=AMG00075 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'} 
+ body=None 
+ </msg>
+<msg timestamp="20220123 18:59:15.810" level="INFO">GET Response : url=https://api-analytics.amagi.tv/api/v2?type=concurrentUsers&amp;hoursLimit=12&amp;customerId=AMG00075 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'nginx', 'Date': 'Sun, 23 Jan 2022 13:29:15 GMT', 'Cache-Control': 'no-cache', 'Content-Encoding': 'gzip', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains;', 'X-Frame-Options': 'DENY', 'Vary': 'accept-encoding', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 006001ff73bff1d0919c1a5beffb211e.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'MAA51-C2', 'X-Amz-Cf-Id': 'xYrQ7OW2JE2g6YJCiUHB0GH1Y8t3wjEoJfpVTaRb4nbCIK-GQc_8zg=='} 
+ body=[{"time":"2022-01-23T01:15:00.000Z","viewerCount":85720},{"time":"2022-01-23T01:16:00.000Z","viewerCount":85920},{"time":"2022-01-23T01:17:00.000Z","viewerCount":88588},{"time":"2022-01-23T01:18:00.000Z","viewerCount":89054},{"time":"2022-01-23T01:19:00.000Z","viewerCount":88971},{"time":"2022-01-23T01:20:00.000Z","viewerCount":89066},{"time":"2022-01-23T01:21:00.000Z","viewerCount":88880},{"time":"2022-01-23T01:22:00.000Z","viewerCount":88259},{"time":"2022-01-23T01:23:00.000Z","viewerCount":88484},{"time":"2022-01-23T01:24:00.000Z","viewerCount":88096},{"time":"2022-01-23T01:25:00.000Z","viewerCount":88416},{"time":"2022-01-23T01:26:00.000Z","viewerCount":88779},{"time":"2022-01-23T01:27:00.000Z","viewerCount":88647},{"time":"2022-01-23T01:28:00.000Z","viewerCount":88650},{"time":"2022-01-23T01:29:00.000Z","viewerCount":88744},{"time":"2022-01-23T01:30:00.000Z","viewerCount":88649},{"time":"2022-01-23T01:31:00.000Z","viewerCount":88414},{"time":"2022-01-23T01:32:00.000Z","viewerCount":88429},{"time":"2022-01-23T01:33:00.000Z","viewerCount":88196},{"time":"2022-01-23T01:34:00.000Z","viewerCount":87906},{"time":"2022-01-23T01:35:00.000Z","viewerCount":88036},{"time":"2022-01-23T01:36:00.000Z","viewerCount":87763},{"time":"2022-01-23T01:37:00.000Z","viewerCount":88182},{"time":"2022-01-23T01:38:00.000Z","viewerCount":88227},{"time":"2022-01-23T01:39:00.000Z","viewerCount":88410},{"time":"2022-01-23T01:40:00.000Z","viewerCount":88462},{"time":"2022-01-23T01:41:00.000Z","viewerCount":88327},{"time":"2022-01-23T01:42:00.000Z","viewerCount":88394},{"time":"2022-01-23T01:43:00.000Z","viewerCount":87695},{"time":"2022-01-23T01:44:00.000Z","viewerCount":87443},{"time":"2022-01-23T01:45:00.000Z","viewerCount":87582},{"time":"2022-01-23T01:46:00.000Z","viewerCount":87702},{"time":"2022-01-23T01:47:00.000Z","viewerCount":87539},{"time":"2022-01-23T01:48:00.000Z","viewerCount":87350},{"time":"2022-01-23T01:49:00.000Z","viewerCount":87329},{"time":"2022-01-23T01:50:00.000Z","viewerCount":87526},{"time":"2022-01-23T01:51:00.000Z","viewerCount":87447},{"time":"2022-01-23T01:52:00.000Z","viewerCount":87701},{"time":"2022-01-23T01:53:00.000Z","viewerCount":87261},{"time":"2022-01-23T01:54:00.000Z","viewerCount":87363},{"time":"2022-01-23T01:55:00.000Z","viewerCount":87338},{"time":"2022-01-23T01:56:00.000Z","viewerCount":87527},{"time":"2022-01-23T01:57:00.000Z","viewerCount":87810},{"time":"2022-01-23T01:58:00.000Z","viewerCount":87595},{"time":"2022-01-23T01:59:00.000Z","viewerCount":87761},{"time":"2022-01-23T02:00:00.000Z","viewerCount":87855},{"time":"2022-01-23T02:01:00.000Z","viewerCount":88370},{"time":"2022-01-23T02:02:00.000Z","viewerCount":88332},{"time":"2022-01-23T02:03:00.000Z","viewerCount":87764},{"time":"2022-01-23T02:04:00.000Z","viewerCount":87444},{"time":"2022-01-23T02:05:00.000Z","viewerCount":87517},{"time":"2022-01-23T02:06:00.000Z","viewerCount":87999},{"time":"2022-01-23T02:07:00.000Z","viewerCount":88248},{"time":"2022-01-23T02:08:00.000Z","viewerCount":88076},{"time":"2022-01-23T02:09:00.000Z","viewerCount":88012},{"time":"2022-01-23T02:10:00.000Z","viewerCount":88016},{"time":"2022-01-23T02:11:00.000Z","viewerCount":87939},{"time":"2022-01-23T02:12:00.000Z","viewerCount":88118},{"time":"2022-01-23T02:13:00.000Z","viewerCount":88180},{"time":"2022-01-23T02:14:00.000Z","viewerCount":87484},{"time":"2022-01-23T02:15:00.000Z","viewerCount":87070},{"time":"2022-01-23T02:16:00.000Z","viewerCount":87420},{"time":"2022-01-23T02:17:00.000Z","viewerCount":87064},{"time":"2022-01-23T02:18:00.000Z","viewerCount":87093},{"time":"2022-01-23T02:19:00.000Z","viewerCount":86417},{"time":"2022-01-23T02:20:00.000Z","viewerCount":85821},{"time":"2022-01-23T02:21:00.000Z","viewerCount":85722},{"time":"2022-01-23T02:22:00.000Z","viewerCount":85537},{"time":"2022-01-23T02:23:00.000Z","viewerCount":85288},{"time":"2022-01-23T02:24:00.000Z","viewerCount":85480},{"time":"2022-01-23T02:25:00.000Z","viewerCount":85551},{"time":"2022-01-23T02:26:00.000Z","viewerCount":85372},{"time":"2022-01-23T02:27:00.000Z","viewerCount":85283},{"time":"2022-01-23T02:28:00.000Z","viewerCount":85375},{"time":"2022-01-23T02:29:00.000Z","viewerCount":85898},{"time":"2022-01-23T02:30:00.000Z","viewerCount":85523},{"time":"2022-01-23T02:31:00.000Z","viewerCount":85528},{"time":"2022-01-23T02:32:00.000Z","viewerCount":85122},{"time":"2022-01-23T02:33:00.000Z","viewerCount":85168},{"time":"2022-01-23T02:34:00.000Z","viewerCount":84905},{"time":"2022-01-23T02:35:00.000Z","viewerCount":84694},{"time":"2022-01-23T02:36:00.000Z","viewerCount":84873},{"time":"2022-01-23T02:37:00.000Z","viewerCount":84927},{"time":"2022-01-23T02:38:00.000Z","viewerCount":85119},{"time":"2022-01-23T02:39:00.000Z","viewerCount":85294},{"time":"2022-01-23T02:40:00.000Z","viewerCount":85051},{"time":"2022-01-23T02:41:00.000Z","viewerCount":85210},{"time":"2022-01-23T02:42:00.000Z","viewerCount":85145},{"time":"2022-01-23T02:43:00.000Z","viewerCount":85070},{"time":"2022-01-23T02:44:00.000Z","viewerCount":85235},{"time":"2022-01-23T02:45:00.000Z","viewerCount":84798},{"time":"2022-01-23T02:46:00.000Z","viewerCount":84731},{"time":"2022-01-23T02:47:00.000Z","viewerCount":84769},{"time":"2022-01-23T02:48:00.000Z","viewerCount":84682},{"time":"2022-01-23T02:49:00.000Z","viewerCount":84704},{"time":"2022-01-23T02:50:00.000Z","viewerCount":84193},{"time":"2022-01-23T02:51:00.000Z","viewerCount":84013},{"time":"2022-01-23T02:52:00.000Z","viewerCount":84173},{"time":"2022-01-23T02:53:00.000Z","viewerCount":84182},{"time":"2022-01-23T02:54:00.000Z","viewerCount":83740},{"time":"2022-01-23T02:55:00.000Z","viewerCount":84346},{"time":"2022-01-23T02:56:00.000Z","viewerCount":84287},{"time":"2022-01-23T02:57:00.000Z","viewerCount":84207},{"time":"2022-01-23T02:58:00.000Z","viewerCount":84347},{"time":"2022-01-23T02:59:00.000Z","viewerCount":84871},{"time":"2022-01-23T03:00:00.000Z","viewerCount":85376},{"time":"2022-01-23T03:01:00.000Z","viewerCount":85807},{"time":"2022-01-23T03:02:00.000Z","viewerCount":85876},{"time":"2022-01-23T03:03:00.000Z","viewerCount":85262},{"time":"2022-01-23T03:04:00.000Z","viewerCount":84569},{"time":"2022-01-23T03:05:00.000Z","viewerCount":84106},{"time":"2022-01-23T03:06:00.000Z","viewerCount":84178},{"time":"2022-01-23T03:07:00.000Z","viewerCount":84478},{"time":"2022-01-23T03:08:00.000Z","viewerCount":85112},{"time":"2022-01-23T03:09:00.000Z","viewerCount":85448},{"time":"2022-01-23T03:10:00.000Z","viewerCount":84932},{"time":"2022-01-23T03:11:00.000Z","viewerCount":85035},{"time":"2022-01-23T03:12:00.000Z","viewerCount":85020},{"time":"2022-01-23T03:13:00.000Z","viewerCount":85106},{"time":"2022-01-23T03:14:00.000Z","viewerCount":85080},{"time":"2022-01-23T03:15:00.000Z","viewerCount":85256},{"time":"2022-01-23T03:16:00.000Z","viewerCount":85094},{"time":"2022-01-23T03:17:00.000Z","viewerCount":85115},{"time":"2022-01-23T03:18:00.000Z","viewerCount":85267},{"time":"2022-01-23T03:19:00.000Z","viewerCount":85258},{"time":"2022-01-23T03:20:00.000Z","viewerCount":84958},{"time":"2022-01-23T03:21:00.000Z","viewerCount":84602},{"time":"2022-01-23T03:22:00.000Z","viewerCount":85256},{"time":"2022-01-23T03:23:00.000Z","viewerCount":84990},{"time":"2022-01-23T03:24:00.000Z","viewerCount":85298},{"time":"2022-01-23T03:25:00.000Z","viewerCount":85127},{"time":"2022-01-23T03:26:00.000Z","viewerCount":85149},{"time":"2022-01-23T03:27:00.000Z","viewerCount":85256},{"time":"2022-01-23T03:28:00.000Z","viewerCount":85301},{"time":"2022-01-23T03:29:00.000Z","viewerCount":85405},{"time":"2022-01-23T03:30:00.000Z","viewerCount":85386},{"time":"2022-01-23T03:31:00.000Z","viewerCount":85389},{"time":"2022-01-23T03:32:00.000Z","viewerCount":85611},{"time":"2022-01-23T03:33:00.000Z","viewerCount":85170},{"time":"2022-01-23T03:34:00.000Z","viewerCount":84599},{"time":"2022-01-23T03:35:00.000Z","viewerCount":84802},{"time":"2022-01-23T03:36:00.000Z","viewerCount":84805},{"time":"2022-01-23T03:37:00.000Z","viewerCount":84820},{"time":"2022-01-23T03:38:00.000Z","viewerCount":84371},{"time":"2022-01-23T03:39:00.000Z","viewerCount":84389},{"time":"2022-01-23T03:40:00.000Z","viewerCount":84426},{"time":"2022-01-23T03:41:00.000Z","viewerCount":84118},{"time":"2022-01-23T03:42:00.000Z","viewerCount":83988},{"time":"2022-01-23T03:43:00.000Z","viewerCount":83898},{"time":"2022-01-23T03:44:00.000Z","viewerCount":83910},{"time":"2022-01-23T03:45:00.000Z","viewerCount":83882},{"time":"2022-01-23T03:46:00.000Z","viewerCount":83996},{"time":"2022-01-23T03:47:00.000Z","viewerCount":83841},{"time":"2022-01-23T03:48:00.000Z","viewerCount":83556},{"time":"2022-01-23T03:49:00.000Z","viewerCount":83506},{"time":"2022-01-23T03:50:00.000Z","viewerCount":83371},{"time":"2022-01-23T03:51:00.000Z","viewerCount":83647},{"time":"2022-01-23T03:52:00.000Z","viewerCount":82933},{"time":"2022-01-23T03:53:00.000Z","viewerCount":82212},{"time":"2022-01-23T03:54:00.000Z","viewerCount":82290},{"time":"2022-01-23T03:55:00.000Z","viewerCount":82159},{"time":"2022-01-23T03:56:00.000Z","viewerCount":81783},{"time":"2022-01-23T03:57:00.000Z","viewerCount":81816},{"time":"2022-01-23T03:58:00.000Z","viewerCount":81809},{"time":"2022-01-23T03:59:00.000Z","viewerCount":82551},{"time":"2022-01-23T04:00:00.000Z","viewerCount":82615},{"time":"2022-01-23T04:01:00.000Z","viewerCount":82552},{"time":"2022-01-23T04:02:00.000Z","viewerCount":82526},{"time":"2022-01-23T04:03:00.000Z","viewerCount":81808},{"time":"2022-01-23T04:04:00.000Z","viewerCount":81125},{"time":"2022-01-23T04:05:00.000Z","viewerCount":80641},{"time":"2022-01-23T04:06:00.000Z","viewerCount":80387},{"time":"2022-01-23T04:07:00.000Z","viewerCount":79803},{"time":"2022-01-23T04:08:00.000Z","viewerCount":79710},{"time":"2022-01-23T04:09:00.000Z","viewerCount":79762},{"time":"2022-01-23T04:10:00.000Z","viewerCount":80125},{"time":"2022-01-23T04:11:00.000Z","viewerCount":80145},{"time":"2022-01-23T04:12:00.000Z","viewerCount":80999},{"time":"2022-01-23T04:13:00.00... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20220123 18:59:15.810" level="INFO">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-analytics.amagi.tv'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220123 18:59:15.810" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220123 18:59:15.101" endtime="20220123 18:59:15.810"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 18:59:15.811" endtime="20220123 18:59:15.812"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 18:59:15.812" endtime="20220123 18:59:15.848"/>
+</kw>
+<tag>Sanity</tag>
+<status status="PASS" starttime="20220123 18:59:15.097" endtime="20220123 18:59:15.848"/>
+</test>
+<test id="s1-t4" name="FilterUsing-ChannelId_HourLimitIs12">
+<kw name="Get Access Token with Base URL" library="GetAccessToken">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${access_token}</var>
+<arg>x-access-token=ab10a1c3-d1d6-477a-83bb-dc42cf167e62</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220123 18:59:15.849" level="INFO">${access_token} = {'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'}</msg>
+<status status="PASS" starttime="20220123 18:59:15.849" endtime="20220123 18:59:15.849"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>GetAdAnalytics</arg>
+<arg>${Base_URL}</arg>
+<arg>headers=${access_token}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220123 18:59:15.849" level="INFO">Creating Session using : alias=GetAdAnalytics, url=https://api-analytics.amagi.tv/, headers={'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220123 18:59:15.849" endtime="20220123 18:59:15.850"/>
+</kw>
+<status status="PASS" starttime="20220123 18:59:15.849" endtime="20220123 18:59:15.850"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>GetAdAnalytics</arg>
+<arg>${channel_12Hr}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220123 18:59:16.219" level="INFO">GET Request : url=https://api-analytics.amagi.tv/api/v2?type=concurrentUsers&amp;hoursLimit=1&amp;channelId=amg00491-fandango-rottentomatoesroku-rokuus 
+ path_url=/api/v2?type=concurrentUsers&amp;hoursLimit=1&amp;channelId=amg00491-fandango-rottentomatoesroku-rokuus 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'} 
+ body=None 
+ </msg>
+<msg timestamp="20220123 18:59:16.219" level="INFO">GET Response : url=https://api-analytics.amagi.tv/api/v2?type=concurrentUsers&amp;hoursLimit=1&amp;channelId=amg00491-fandango-rottentomatoesroku-rokuus 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'nginx', 'Date': 'Sun, 23 Jan 2022 13:29:16 GMT', 'Cache-Control': 'no-cache', 'Content-Encoding': 'gzip', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains;', 'X-Frame-Options': 'DENY', 'Vary': 'accept-encoding', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 176d129e12bb4ed105d6afbb2740bb9a.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'MAA51-C2', 'X-Amz-Cf-Id': 'NyZZZSqicTawMPNtieudSNvbYDMMT7JeGmzq0Tc9M6fzcxJGx5vMlg=='} 
+ body=[{"time":"2022-01-23T12:15:00.000Z","viewerCount":53},{"time":"2022-01-23T12:16:00.000Z","viewerCount":51},{"time":"2022-01-23T12:17:00.000Z","viewerCount":50},{"time":"2022-01-23T12:18:00.000Z","viewerCount":43},{"time":"2022-01-23T12:19:00.000Z","viewerCount":49},{"time":"2022-01-23T12:20:00.000Z","viewerCount":44},{"time":"2022-01-23T12:21:00.000Z","viewerCount":58},{"time":"2022-01-23T12:22:00.000Z","viewerCount":55},{"time":"2022-01-23T12:23:00.000Z","viewerCount":48},{"time":"2022-01-23T12:24:00.000Z","viewerCount":48},{"time":"2022-01-23T12:25:00.000Z","viewerCount":48},{"time":"2022-01-23T12:26:00.000Z","viewerCount":50},{"time":"2022-01-23T12:27:00.000Z","viewerCount":54},{"time":"2022-01-23T12:28:00.000Z","viewerCount":52},{"time":"2022-01-23T12:29:00.000Z","viewerCount":61},{"time":"2022-01-23T12:30:00.000Z","viewerCount":47},{"time":"2022-01-23T12:31:00.000Z","viewerCount":47},{"time":"2022-01-23T12:32:00.000Z","viewerCount":49},{"time":"2022-01-23T12:33:00.000Z","viewerCount":50},{"time":"2022-01-23T12:34:00.000Z","viewerCount":51},{"time":"2022-01-23T12:35:00.000Z","viewerCount":55},{"time":"2022-01-23T12:36:00.000Z","viewerCount":66},{"time":"2022-01-23T12:37:00.000Z","viewerCount":62},{"time":"2022-01-23T12:38:00.000Z","viewerCount":58},{"time":"2022-01-23T12:39:00.000Z","viewerCount":50},{"time":"2022-01-23T12:40:00.000Z","viewerCount":51},{"time":"2022-01-23T12:41:00.000Z","viewerCount":50},{"time":"2022-01-23T12:42:00.000Z","viewerCount":59},{"time":"2022-01-23T12:43:00.000Z","viewerCount":59},{"time":"2022-01-23T12:44:00.000Z","viewerCount":55},{"time":"2022-01-23T12:45:00.000Z","viewerCount":56},{"time":"2022-01-23T12:46:00.000Z","viewerCount":63},{"time":"2022-01-23T12:47:00.000Z","viewerCount":67},{"time":"2022-01-23T12:48:00.000Z","viewerCount":60},{"time":"2022-01-23T12:49:00.000Z","viewerCount":59},{"time":"2022-01-23T12:50:00.000Z","viewerCount":57},{"time":"2022-01-23T12:51:00.000Z","viewerCount":66},{"time":"2022-01-23T12:52:00.000Z","viewerCount":57},{"time":"2022-01-23T12:53:00.000Z","viewerCount":61},{"time":"2022-01-23T12:54:00.000Z","viewerCount":70},{"time":"2022-01-23T12:55:00.000Z","viewerCount":61},{"time":"2022-01-23T12:56:00.000Z","viewerCount":71},{"time":"2022-01-23T12:57:00.000Z","viewerCount":74},{"time":"2022-01-23T12:58:00.000Z","viewerCount":63},{"time":"2022-01-23T12:59:00.000Z","viewerCount":62},{"time":"2022-01-23T13:00:00.000Z","viewerCount":67},{"time":"2022-01-23T13:01:00.000Z","viewerCount":83},{"time":"2022-01-23T13:02:00.000Z","viewerCount":76},{"time":"2022-01-23T13:03:00.000Z","viewerCount":67},{"time":"2022-01-23T13:04:00.000Z","viewerCount":72},{"time":"2022-01-23T13:05:00.000Z","viewerCount":76},{"time":"2022-01-23T13:06:00.000Z","viewerCount":77},{"time":"2022-01-23T13:07:00.000Z","viewerCount":78},{"time":"2022-01-23T13:08:00.000Z","viewerCount":67},{"time":"2022-01-23T13:09:00.000Z","viewerCount":88},{"time":"2022-01-23T13:10:00.000Z","viewerCount":90},{"time":"2022-01-23T13:11:00.000Z","viewerCount":91},{"time":"2022-01-23T13:12:00.000Z","viewerCount":87},{"time":"2022-01-23T13:13:00.000Z","viewerCount":89}] 
+ </msg>
+<msg timestamp="20220123 18:59:16.219" level="INFO">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-analytics.amagi.tv'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220123 18:59:16.220" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220123 18:59:15.850" endtime="20220123 18:59:16.220"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 18:59:16.220" endtime="20220123 18:59:16.221"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 18:59:16.222" endtime="20220123 18:59:16.222"/>
+</kw>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20220123 18:59:15.848" endtime="20220123 18:59:16.222"/>
+</test>
+<test id="s1-t5" name="FilterUsing-CustomerId_HourLimitIs24">
+<kw name="Get Access Token with Base URL" library="GetAccessToken">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${access_token}</var>
+<arg>x-access-token=ab10a1c3-d1d6-477a-83bb-dc42cf167e62</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220123 18:59:16.223" level="INFO">${access_token} = {'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'}</msg>
+<status status="PASS" starttime="20220123 18:59:16.223" endtime="20220123 18:59:16.223"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>GetAdAnalytics</arg>
+<arg>${Base_URL}</arg>
+<arg>headers=${access_token}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220123 18:59:16.223" level="INFO">Creating Session using : alias=GetAdAnalytics, url=https://api-analytics.amagi.tv/, headers={'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220123 18:59:16.223" endtime="20220123 18:59:16.223"/>
+</kw>
+<status status="PASS" starttime="20220123 18:59:16.223" endtime="20220123 18:59:16.223"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>GetAdAnalytics</arg>
+<arg>${customer_24Hr}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220123 18:59:17.039" level="INFO">GET Request : url=https://api-analytics.amagi.tv/api/v2?type=concurrentUsers&amp;hoursLimit=24&amp;customerId=AMG00075 
+ path_url=/api/v2?type=concurrentUsers&amp;hoursLimit=24&amp;customerId=AMG00075 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'} 
+ body=None 
+ </msg>
+<msg timestamp="20220123 18:59:17.039" level="INFO">GET Response : url=https://api-analytics.amagi.tv/api/v2?type=concurrentUsers&amp;hoursLimit=24&amp;customerId=AMG00075 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'nginx', 'Date': 'Sun, 23 Jan 2022 13:29:16 GMT', 'Cache-Control': 'no-cache', 'Content-Encoding': 'gzip', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains;', 'X-Frame-Options': 'DENY', 'Vary': 'accept-encoding', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 aaa28089812a8cbbdc47a8373706087a.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'MAA51-C2', 'X-Amz-Cf-Id': 'nIo2vM_5IOkmtCHv_0a71lYBBkmgOnKtO37aFqtVlZkSjzNoVrExpA=='} 
+ body=[{"time":"2022-01-22T13:15:00.000Z","viewerCount":68008},{"time":"2022-01-22T13:16:00.000Z","viewerCount":68168},{"time":"2022-01-22T13:17:00.000Z","viewerCount":68265},{"time":"2022-01-22T13:18:00.000Z","viewerCount":68168},{"time":"2022-01-22T13:19:00.000Z","viewerCount":68189},{"time":"2022-01-22T13:20:00.000Z","viewerCount":68394},{"time":"2022-01-22T13:21:00.000Z","viewerCount":68407},{"time":"2022-01-22T13:22:00.000Z","viewerCount":68723},{"time":"2022-01-22T13:23:00.000Z","viewerCount":68614},{"time":"2022-01-22T13:24:00.000Z","viewerCount":69113},{"time":"2022-01-22T13:25:00.000Z","viewerCount":69458},{"time":"2022-01-22T13:26:00.000Z","viewerCount":69817},{"time":"2022-01-22T13:27:00.000Z","viewerCount":69486},{"time":"2022-01-22T13:28:00.000Z","viewerCount":70018},{"time":"2022-01-22T13:29:00.000Z","viewerCount":70006},{"time":"2022-01-22T13:30:00.000Z","viewerCount":70099},{"time":"2022-01-22T13:31:00.000Z","viewerCount":70310},{"time":"2022-01-22T13:32:00.000Z","viewerCount":70581},{"time":"2022-01-22T13:33:00.000Z","viewerCount":70821},{"time":"2022-01-22T13:34:00.000Z","viewerCount":70597},{"time":"2022-01-22T13:35:00.000Z","viewerCount":71281},{"time":"2022-01-22T13:36:00.000Z","viewerCount":71030},{"time":"2022-01-22T13:37:00.000Z","viewerCount":71261},{"time":"2022-01-22T13:38:00.000Z","viewerCount":71302},{"time":"2022-01-22T13:39:00.000Z","viewerCount":71307},{"time":"2022-01-22T13:40:00.000Z","viewerCount":71321},{"time":"2022-01-22T13:41:00.000Z","viewerCount":71693},{"time":"2022-01-22T13:42:00.000Z","viewerCount":71655},{"time":"2022-01-22T13:43:00.000Z","viewerCount":71612},{"time":"2022-01-22T13:44:00.000Z","viewerCount":71238},{"time":"2022-01-22T13:45:00.000Z","viewerCount":71425},{"time":"2022-01-22T13:46:00.000Z","viewerCount":71612},{"time":"2022-01-22T13:47:00.000Z","viewerCount":71538},{"time":"2022-01-22T13:48:00.000Z","viewerCount":71968},{"time":"2022-01-22T13:49:00.000Z","viewerCount":71676},{"time":"2022-01-22T13:50:00.000Z","viewerCount":71086},{"time":"2022-01-22T13:51:00.000Z","viewerCount":72011},{"time":"2022-01-22T13:52:00.000Z","viewerCount":71842},{"time":"2022-01-22T13:53:00.000Z","viewerCount":72205},{"time":"2022-01-22T13:54:00.000Z","viewerCount":72288},{"time":"2022-01-22T13:55:00.000Z","viewerCount":72203},{"time":"2022-01-22T13:56:00.000Z","viewerCount":72249},{"time":"2022-01-22T13:57:00.000Z","viewerCount":72810},{"time":"2022-01-22T13:58:00.000Z","viewerCount":72638},{"time":"2022-01-22T13:59:00.000Z","viewerCount":73136},{"time":"2022-01-22T14:00:00.000Z","viewerCount":73237},{"time":"2022-01-22T14:01:00.000Z","viewerCount":73500},{"time":"2022-01-22T14:02:00.000Z","viewerCount":73813},{"time":"2022-01-22T14:03:00.000Z","viewerCount":73380},{"time":"2022-01-22T14:04:00.000Z","viewerCount":73528},{"time":"2022-01-22T14:05:00.000Z","viewerCount":73303},{"time":"2022-01-22T14:06:00.000Z","viewerCount":73440},{"time":"2022-01-22T14:07:00.000Z","viewerCount":73637},{"time":"2022-01-22T14:08:00.000Z","viewerCount":73753},{"time":"2022-01-22T14:09:00.000Z","viewerCount":74006},{"time":"2022-01-22T14:10:00.000Z","viewerCount":74139},{"time":"2022-01-22T14:11:00.000Z","viewerCount":74185},{"time":"2022-01-22T14:12:00.000Z","viewerCount":74373},{"time":"2022-01-22T14:13:00.000Z","viewerCount":74775},{"time":"2022-01-22T14:14:00.000Z","viewerCount":75118},{"time":"2022-01-22T14:15:00.000Z","viewerCount":75249},{"time":"2022-01-22T14:16:00.000Z","viewerCount":75821},{"time":"2022-01-22T14:17:00.000Z","viewerCount":75919},{"time":"2022-01-22T14:18:00.000Z","viewerCount":75922},{"time":"2022-01-22T14:19:00.000Z","viewerCount":76103},{"time":"2022-01-22T14:20:00.000Z","viewerCount":75804},{"time":"2022-01-22T14:21:00.000Z","viewerCount":75328},{"time":"2022-01-22T14:22:00.000Z","viewerCount":75214},{"time":"2022-01-22T14:23:00.000Z","viewerCount":75862},{"time":"2022-01-22T14:24:00.000Z","viewerCount":76145},{"time":"2022-01-22T14:25:00.000Z","viewerCount":76873},{"time":"2022-01-22T14:26:00.000Z","viewerCount":76819},{"time":"2022-01-22T14:27:00.000Z","viewerCount":77270},{"time":"2022-01-22T14:28:00.000Z","viewerCount":77822},{"time":"2022-01-22T14:29:00.000Z","viewerCount":77758},{"time":"2022-01-22T14:30:00.000Z","viewerCount":77979},{"time":"2022-01-22T14:31:00.000Z","viewerCount":77794},{"time":"2022-01-22T14:32:00.000Z","viewerCount":77816},{"time":"2022-01-22T14:33:00.000Z","viewerCount":78236},{"time":"2022-01-22T14:34:00.000Z","viewerCount":78406},{"time":"2022-01-22T14:35:00.000Z","viewerCount":78071},{"time":"2022-01-22T14:36:00.000Z","viewerCount":78463},{"time":"2022-01-22T14:37:00.000Z","viewerCount":78244},{"time":"2022-01-22T14:38:00.000Z","viewerCount":78690},{"time":"2022-01-22T14:39:00.000Z","viewerCount":78530},{"time":"2022-01-22T14:40:00.000Z","viewerCount":78537},{"time":"2022-01-22T14:41:00.000Z","viewerCount":78477},{"time":"2022-01-22T14:42:00.000Z","viewerCount":78831},{"time":"2022-01-22T14:43:00.000Z","viewerCount":78943},{"time":"2022-01-22T14:44:00.000Z","viewerCount":79482},{"time":"2022-01-22T14:45:00.000Z","viewerCount":79611},{"time":"2022-01-22T14:46:00.000Z","viewerCount":79349},{"time":"2022-01-22T14:47:00.000Z","viewerCount":79463},{"time":"2022-01-22T14:48:00.000Z","viewerCount":79551},{"time":"2022-01-22T14:49:00.000Z","viewerCount":80030},{"time":"2022-01-22T14:50:00.000Z","viewerCount":79747},{"time":"2022-01-22T14:51:00.000Z","viewerCount":79799},{"time":"2022-01-22T14:52:00.000Z","viewerCount":80158},{"time":"2022-01-22T14:53:00.000Z","viewerCount":80271},{"time":"2022-01-22T14:54:00.000Z","viewerCount":80579},{"time":"2022-01-22T14:55:00.000Z","viewerCount":80928},{"time":"2022-01-22T14:56:00.000Z","viewerCount":81109},{"time":"2022-01-22T14:57:00.000Z","viewerCount":80998},{"time":"2022-01-22T14:58:00.000Z","viewerCount":80779},{"time":"2022-01-22T14:59:00.000Z","viewerCount":81210},{"time":"2022-01-22T15:00:00.000Z","viewerCount":81325},{"time":"2022-01-22T15:01:00.000Z","viewerCount":82237},{"time":"2022-01-22T15:02:00.000Z","viewerCount":82159},{"time":"2022-01-22T15:03:00.000Z","viewerCount":82114},{"time":"2022-01-22T15:04:00.000Z","viewerCount":82312},{"time":"2022-01-22T15:05:00.000Z","viewerCount":82727},{"time":"2022-01-22T15:06:00.000Z","viewerCount":83106},{"time":"2022-01-22T15:07:00.000Z","viewerCount":83720},{"time":"2022-01-22T15:08:00.000Z","viewerCount":83887},{"time":"2022-01-22T15:09:00.000Z","viewerCount":84596},{"time":"2022-01-22T15:10:00.000Z","viewerCount":84538},{"time":"2022-01-22T15:11:00.000Z","viewerCount":84814},{"time":"2022-01-22T15:12:00.000Z","viewerCount":84630},{"time":"2022-01-22T15:13:00.000Z","viewerCount":84335},{"time":"2022-01-22T15:14:00.000Z","viewerCount":84764},{"time":"2022-01-22T15:15:00.000Z","viewerCount":84766},{"time":"2022-01-22T15:16:00.000Z","viewerCount":84870},{"time":"2022-01-22T15:17:00.000Z","viewerCount":84569},{"time":"2022-01-22T15:18:00.000Z","viewerCount":84218},{"time":"2022-01-22T15:19:00.000Z","viewerCount":85035},{"time":"2022-01-22T15:20:00.000Z","viewerCount":84865},{"time":"2022-01-22T15:21:00.000Z","viewerCount":84419},{"time":"2022-01-22T15:22:00.000Z","viewerCount":84680},{"time":"2022-01-22T15:23:00.000Z","viewerCount":83611},{"time":"2022-01-22T15:24:00.000Z","viewerCount":83693},{"time":"2022-01-22T15:25:00.000Z","viewerCount":81072},{"time":"2022-01-22T15:26:00.000Z","viewerCount":83153},{"time":"2022-01-22T15:27:00.000Z","viewerCount":80386},{"time":"2022-01-22T15:28:00.000Z","viewerCount":81817},{"time":"2022-01-22T15:29:00.000Z","viewerCount":78215},{"time":"2022-01-22T15:30:00.000Z","viewerCount":81666},{"time":"2022-01-22T15:31:00.000Z","viewerCount":79102},{"time":"2022-01-22T15:32:00.000Z","viewerCount":81655},{"time":"2022-01-22T15:33:00.000Z","viewerCount":76590},{"time":"2022-01-22T15:34:00.000Z","viewerCount":79600},{"time":"2022-01-22T15:35:00.000Z","viewerCount":77068},{"time":"2022-01-22T15:36:00.000Z","viewerCount":78761},{"time":"2022-01-22T15:37:00.000Z","viewerCount":76733},{"time":"2022-01-22T15:38:00.000Z","viewerCount":77918},{"time":"2022-01-22T15:39:00.000Z","viewerCount":73729},{"time":"2022-01-22T15:40:00.000Z","viewerCount":75372},{"time":"2022-01-22T15:41:00.000Z","viewerCount":72241},{"time":"2022-01-22T15:42:00.000Z","viewerCount":74201},{"time":"2022-01-22T15:43:00.000Z","viewerCount":72370},{"time":"2022-01-22T15:44:00.000Z","viewerCount":72004},{"time":"2022-01-22T15:45:00.000Z","viewerCount":72063},{"time":"2022-01-22T15:46:00.000Z","viewerCount":73337},{"time":"2022-01-22T15:47:00.000Z","viewerCount":73206},{"time":"2022-01-22T15:48:00.000Z","viewerCount":73765},{"time":"2022-01-22T15:49:00.000Z","viewerCount":73233},{"time":"2022-01-22T15:50:00.000Z","viewerCount":72958},{"time":"2022-01-22T15:51:00.000Z","viewerCount":72383},{"time":"2022-01-22T15:52:00.000Z","viewerCount":73159},{"time":"2022-01-22T15:53:00.000Z","viewerCount":73587},{"time":"2022-01-22T15:54:00.000Z","viewerCount":73383},{"time":"2022-01-22T15:55:00.000Z","viewerCount":73298},{"time":"2022-01-22T15:56:00.000Z","viewerCount":73388},{"time":"2022-01-22T15:57:00.000Z","viewerCount":73746},{"time":"2022-01-22T15:58:00.000Z","viewerCount":72588},{"time":"2022-01-22T15:59:00.000Z","viewerCount":74649},{"time":"2022-01-22T16:00:00.000Z","viewerCount":78792},{"time":"2022-01-22T16:01:00.000Z","viewerCount":76746},{"time":"2022-01-22T16:02:00.000Z","viewerCount":77111},{"time":"2022-01-22T16:03:00.000Z","viewerCount":72917},{"time":"2022-01-22T16:04:00.000Z","viewerCount":75173},{"time":"2022-01-22T16:05:00.000Z","viewerCount":72907},{"time":"2022-01-22T16:06:00.000Z","viewerCount":73921},{"time":"2022-01-22T16:07:00.000Z","viewerCount":73609},{"time":"2022-01-22T16:08:00.000Z","viewerCount":72916},{"time":"2022-01-22T16:09:00.000Z","viewerCount":73918},{"time":"2022-01-22T16:10:00.000Z","viewerCount":73642},{"time":"2022-01-22T16:11:00.000Z","viewerCount":73325},{"time":"2022-01-22T16:12:00.000Z","viewerCount":73918},{"time":"2022-01-22T16:13:00.00... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20220123 18:59:17.040" level="INFO">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-analytics.amagi.tv'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220123 18:59:17.040" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220123 18:59:16.223" endtime="20220123 18:59:17.040"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 18:59:17.040" endtime="20220123 18:59:17.041"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 18:59:17.041" endtime="20220123 18:59:17.066"/>
+</kw>
+<tag>Sanity</tag>
+<status status="PASS" starttime="20220123 18:59:16.222" endtime="20220123 18:59:17.066"/>
+</test>
+<test id="s1-t6" name="FilterUsing-ChannelId_HourLimitIs24">
+<kw name="Get Access Token with Base URL" library="GetAccessToken">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${access_token}</var>
+<arg>x-access-token=ab10a1c3-d1d6-477a-83bb-dc42cf167e62</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220123 18:59:17.068" level="INFO">${access_token} = {'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'}</msg>
+<status status="PASS" starttime="20220123 18:59:17.068" endtime="20220123 18:59:17.068"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>GetAdAnalytics</arg>
+<arg>${Base_URL}</arg>
+<arg>headers=${access_token}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220123 18:59:17.069" level="INFO">Creating Session using : alias=GetAdAnalytics, url=https://api-analytics.amagi.tv/, headers={'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220123 18:59:17.068" endtime="20220123 18:59:17.069"/>
+</kw>
+<status status="PASS" starttime="20220123 18:59:17.067" endtime="20220123 18:59:17.069"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>GetAdAnalytics</arg>
+<arg>${channel_24Hr}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220123 18:59:17.448" level="INFO">GET Request : url=https://api-analytics.amagi.tv/api/v2?type=concurrentUsers&amp;hoursLimit=1&amp;channelId=amg00491-fandango-rottentomatoesroku-rokuus 
+ path_url=/api/v2?type=concurrentUsers&amp;hoursLimit=1&amp;channelId=amg00491-fandango-rottentomatoesroku-rokuus 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'} 
+ body=None 
+ </msg>
+<msg timestamp="20220123 18:59:17.448" level="INFO">GET Response : url=https://api-analytics.amagi.tv/api/v2?type=concurrentUsers&amp;hoursLimit=1&amp;channelId=amg00491-fandango-rottentomatoesroku-rokuus 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'nginx', 'Date': 'Sun, 23 Jan 2022 13:29:17 GMT', 'Cache-Control': 'no-cache', 'Content-Encoding': 'gzip', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains;', 'X-Frame-Options': 'DENY', 'Vary': 'accept-encoding', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 640fa25b6b0e269c235d870b4229e90c.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'MAA51-C2', 'X-Amz-Cf-Id': 'Ss-EiCgoedd2qPblgMEynmJKJ1LbnXLAb3tkl0-0ne7m5dehR-7JBQ=='} 
+ body=[{"time":"2022-01-23T12:15:00.000Z","viewerCount":53},{"time":"2022-01-23T12:16:00.000Z","viewerCount":51},{"time":"2022-01-23T12:17:00.000Z","viewerCount":50},{"time":"2022-01-23T12:18:00.000Z","viewerCount":43},{"time":"2022-01-23T12:19:00.000Z","viewerCount":49},{"time":"2022-01-23T12:20:00.000Z","viewerCount":44},{"time":"2022-01-23T12:21:00.000Z","viewerCount":58},{"time":"2022-01-23T12:22:00.000Z","viewerCount":55},{"time":"2022-01-23T12:23:00.000Z","viewerCount":48},{"time":"2022-01-23T12:24:00.000Z","viewerCount":48},{"time":"2022-01-23T12:25:00.000Z","viewerCount":48},{"time":"2022-01-23T12:26:00.000Z","viewerCount":50},{"time":"2022-01-23T12:27:00.000Z","viewerCount":54},{"time":"2022-01-23T12:28:00.000Z","viewerCount":52},{"time":"2022-01-23T12:29:00.000Z","viewerCount":61},{"time":"2022-01-23T12:30:00.000Z","viewerCount":47},{"time":"2022-01-23T12:31:00.000Z","viewerCount":47},{"time":"2022-01-23T12:32:00.000Z","viewerCount":49},{"time":"2022-01-23T12:33:00.000Z","viewerCount":50},{"time":"2022-01-23T12:34:00.000Z","viewerCount":51},{"time":"2022-01-23T12:35:00.000Z","viewerCount":55},{"time":"2022-01-23T12:36:00.000Z","viewerCount":66},{"time":"2022-01-23T12:37:00.000Z","viewerCount":62},{"time":"2022-01-23T12:38:00.000Z","viewerCount":58},{"time":"2022-01-23T12:39:00.000Z","viewerCount":50},{"time":"2022-01-23T12:40:00.000Z","viewerCount":51},{"time":"2022-01-23T12:41:00.000Z","viewerCount":50},{"time":"2022-01-23T12:42:00.000Z","viewerCount":59},{"time":"2022-01-23T12:43:00.000Z","viewerCount":59},{"time":"2022-01-23T12:44:00.000Z","viewerCount":55},{"time":"2022-01-23T12:45:00.000Z","viewerCount":56},{"time":"2022-01-23T12:46:00.000Z","viewerCount":63},{"time":"2022-01-23T12:47:00.000Z","viewerCount":67},{"time":"2022-01-23T12:48:00.000Z","viewerCount":60},{"time":"2022-01-23T12:49:00.000Z","viewerCount":59},{"time":"2022-01-23T12:50:00.000Z","viewerCount":57},{"time":"2022-01-23T12:51:00.000Z","viewerCount":66},{"time":"2022-01-23T12:52:00.000Z","viewerCount":57},{"time":"2022-01-23T12:53:00.000Z","viewerCount":61},{"time":"2022-01-23T12:54:00.000Z","viewerCount":70},{"time":"2022-01-23T12:55:00.000Z","viewerCount":61},{"time":"2022-01-23T12:56:00.000Z","viewerCount":71},{"time":"2022-01-23T12:57:00.000Z","viewerCount":74},{"time":"2022-01-23T12:58:00.000Z","viewerCount":63},{"time":"2022-01-23T12:59:00.000Z","viewerCount":62},{"time":"2022-01-23T13:00:00.000Z","viewerCount":67},{"time":"2022-01-23T13:01:00.000Z","viewerCount":83},{"time":"2022-01-23T13:02:00.000Z","viewerCount":76},{"time":"2022-01-23T13:03:00.000Z","viewerCount":67},{"time":"2022-01-23T13:04:00.000Z","viewerCount":72},{"time":"2022-01-23T13:05:00.000Z","viewerCount":76},{"time":"2022-01-23T13:06:00.000Z","viewerCount":77},{"time":"2022-01-23T13:07:00.000Z","viewerCount":78},{"time":"2022-01-23T13:08:00.000Z","viewerCount":67},{"time":"2022-01-23T13:09:00.000Z","viewerCount":88},{"time":"2022-01-23T13:10:00.000Z","viewerCount":90},{"time":"2022-01-23T13:11:00.000Z","viewerCount":91},{"time":"2022-01-23T13:12:00.000Z","viewerCount":87},{"time":"2022-01-23T13:13:00.000Z","viewerCount":89}] 
+ </msg>
+<msg timestamp="20220123 18:59:17.448" level="INFO">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-analytics.amagi.tv'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220123 18:59:17.448" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220123 18:59:17.069" endtime="20220123 18:59:17.448"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 18:59:17.449" endtime="20220123 18:59:17.450"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 18:59:17.450" endtime="20220123 18:59:17.451"/>
+</kw>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20220123 18:59:17.067" endtime="20220123 18:59:17.452"/>
+</test>
+<status status="PASS" starttime="20220123 18:59:14.031" endtime="20220123 18:59:17.453"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="3" fail="0" skip="0">Sanity</stat>
+<stat pass="3" fail="0" skip="0">Smoke</stat>
+</tag>
+<suite>
+<stat pass="6" fail="0" skip="0" id="s1" name="ConcurrentUsersAPI">ConcurrentUsersAPI</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

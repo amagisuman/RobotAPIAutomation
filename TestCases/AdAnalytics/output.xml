@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.8.10 on linux)" generated="20220123 18:22:59.544" rpa="false" schemaversion="2">
+<suite id="s1" name="AdAnalyticsAPI" source="/home/sumankumars/PycharmProjects/RoboatAPIAutomation/TestCases/AdAnalytics/AdAnalyticsAPI.robot">
+<test id="s1-t1" name="FilterUsing-DateRange_Customer_Content_Country_City_Timezone_Device">
+<kw name="Get Access Token with Base URL" library="GetAccessToken">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${access_token}</var>
+<arg>x-access-token=ab10a1c3-d1d6-477a-83bb-dc42cf167e62</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220123 18:22:59.641" level="INFO">${access_token} = {'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'}</msg>
+<status status="PASS" starttime="20220123 18:22:59.641" endtime="20220123 18:22:59.641"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>GetAdAnalytics</arg>
+<arg>${Base_URL}</arg>
+<arg>headers=${access_token}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220123 18:22:59.641" level="INFO">Creating Session using : alias=GetAdAnalytics, url=https://api-analytics.amagi.tv/, headers={'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220123 18:22:59.641" endtime="20220123 18:22:59.641"/>
+</kw>
+<status status="PASS" starttime="20220123 18:22:59.640" endtime="20220123 18:22:59.641"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>GetAdAnalytics</arg>
+<arg>${customer_content_device_timezone_country_city}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220123 18:23:00.376" level="INFO">GET Request : url=https://api-analytics.amagi.tv/api/v2?type=adAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;customerId=AMG00354&amp;contentId=l2y1uvq1&amp;country=United%20States&amp;city=Anderson&amp;timezone=US/Eastern&amp;deviceType=Smart%20TV&amp;deviceName=Google%20Chromecast 
+ path_url=/api/v2?type=adAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;customerId=AMG00354&amp;contentId=l2y1uvq1&amp;country=United%20States&amp;city=Anderson&amp;timezone=US/Eastern&amp;deviceType=Smart%20TV&amp;deviceName=Google%20Chromecast 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'} 
+ body=None 
+ </msg>
+<msg timestamp="20220123 18:23:00.376" level="INFO">GET Response : url=https://api-analytics.amagi.tv/api/v2?type=adAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;customerId=AMG00354&amp;contentId=l2y1uvq1&amp;country=United%20States&amp;city=Anderson&amp;timezone=US/Eastern&amp;deviceType=Smart%20TV&amp;deviceName=Google%20Chromecast 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '473', 'Connection': 'keep-alive', 'Server': 'nginx', 'Date': 'Sun, 23 Jan 2022 12:53:00 GMT', 'Cache-Control': 'no-cache', 'Accept-Ranges': 'bytes', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains;', 'X-Frame-Options': 'DENY', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 e9118eaafbac91b226f6233c46eb3aac.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-C2', 'X-Amz-Cf-Id': 'au1h3iU6_TyOnmW5MHeJ-um1h7OPEA-5-ULb281giVv7GazVUJA4tw=='} 
+ body={"dateRange":{"startDate":"2021-10-10","endDate":"2021-10-21","interval":"DAILY","startTime":"00:00","endTime":"23:00"},"adAnalytics":[{"time":"2021-10-17 00:00:00","adOpportunitiesDetected":5461,"adRequestsSent":1,"adResponsesReceived":1,"adAssetsReceived":3,"impressionsRecorded":0,"conversionRate":0}],"totalAdOpportunitiesDetected":5461,"totalAdRequestsSent":1,"totalAdResponsesReceived":1,"totalAdAssetsReceived":3,"totalImpressionsRecorded":0,"totalConversionRate":0} 
+ </msg>
+<msg timestamp="20220123 18:23:00.377" level="INFO">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-analytics.amagi.tv'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220123 18:23:00.377" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220123 18:22:59.642" endtime="20220123 18:23:00.377"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 18:23:00.377" endtime="20220123 18:23:00.379"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 18:23:00.379" endtime="20220123 18:23:00.380"/>
+</kw>
+<tag>Regression</tag>
+<status status="PASS" starttime="20220123 18:22:59.640" endtime="20220123 18:23:00.380"/>
+</test>
+<test id="s1-t2" name="FilterUsing-DateRange_Channel_Content_Country_City_Timezone_Device">
+<kw name="Get Access Token with Base URL" library="GetAccessToken">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${access_token}</var>
+<arg>x-access-token=ab10a1c3-d1d6-477a-83bb-dc42cf167e62</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220123 18:23:00.381" level="INFO">${access_token} = {'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'}</msg>
+<status status="PASS" starttime="20220123 18:23:00.381" endtime="20220123 18:23:00.381"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>GetAdAnalytics</arg>
+<arg>${Base_URL}</arg>
+<arg>headers=${access_token}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220123 18:23:00.381" level="INFO">Creating Session using : alias=GetAdAnalytics, url=https://api-analytics.amagi.tv/, headers={'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220123 18:23:00.381" endtime="20220123 18:23:00.381"/>
+</kw>
+<status status="PASS" starttime="20220123 18:23:00.381" endtime="20220123 18:23:00.381"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>GetAdAnalytics</arg>
+<arg>${channel_content_device_timezone_country_city}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220123 18:23:00.683" level="INFO">GET Request : url=https://api-analytics.amagi.tv/api/v2?type=adAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;channelId=outsidetv-outsidetv-vizio&amp;contentId=l2y1uvq1&amp;country=United%20States&amp;city=Anderson&amp;timezone=US/Eastern&amp;deviceType=Smart%20TV&amp;deviceName=Google%20Chromecast 
+ path_url=/api/v2?type=adAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;channelId=outsidetv-outsidetv-vizio&amp;contentId=l2y1uvq1&amp;country=United%20States&amp;city=Anderson&amp;timezone=US/Eastern&amp;deviceType=Smart%20TV&amp;deviceName=Google%20Chromecast 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'} 
+ body=None 
+ </msg>
+<msg timestamp="20220123 18:23:00.684" level="INFO">GET Response : url=https://api-analytics.amagi.tv/api/v2?type=adAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;channelId=outsidetv-outsidetv-vizio&amp;contentId=l2y1uvq1&amp;country=United%20States&amp;city=Anderson&amp;timezone=US/Eastern&amp;deviceType=Smart%20TV&amp;deviceName=Google%20Chromecast 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '473', 'Connection': 'keep-alive', 'Server': 'nginx', 'Date': 'Sun, 23 Jan 2022 12:53:00 GMT', 'Cache-Control': 'no-cache', 'Accept-Ranges': 'bytes', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains;', 'X-Frame-Options': 'DENY', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 daa0372743803e0491e19d602067c690.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-C2', 'X-Amz-Cf-Id': 'TZRS4uTFkz8YKnffdbXID9SrhiL-Ix7potARQaWTL7QUjCrf_mZWhg=='} 
+ body={"dateRange":{"startDate":"2021-10-10","endDate":"2021-10-21","interval":"DAILY","startTime":"00:00","endTime":"23:00"},"adAnalytics":[{"time":"2021-10-17 00:00:00","adOpportunitiesDetected":5461,"adRequestsSent":1,"adResponsesReceived":1,"adAssetsReceived":3,"impressionsRecorded":0,"conversionRate":0}],"totalAdOpportunitiesDetected":5461,"totalAdRequestsSent":1,"totalAdResponsesReceived":1,"totalAdAssetsReceived":3,"totalImpressionsRecorded":0,"totalConversionRate":0} 
+ </msg>
+<msg timestamp="20220123 18:23:00.684" level="INFO">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-analytics.amagi.tv'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220123 18:23:00.684" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220123 18:23:00.381" endtime="20220123 18:23:00.684"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 18:23:00.684" endtime="20220123 18:23:00.686"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 18:23:00.686" endtime="20220123 18:23:00.688"/>
+</kw>
+<tag>Regression</tag>
+<status status="PASS" starttime="20220123 18:23:00.380" endtime="20220123 18:23:00.688"/>
+</test>
+<test id="s1-t3" name="FilterUsing-DateRange_Customer_Content_Country_City_Timezone_Device_Studio">
+<kw name="Get Access Token with Base URL" library="GetAccessToken">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${access_token}</var>
+<arg>x-access-token=ab10a1c3-d1d6-477a-83bb-dc42cf167e62</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220123 18:23:00.690" level="INFO">${access_token} = {'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'}</msg>
+<status status="PASS" starttime="20220123 18:23:00.690" endtime="20220123 18:23:00.690"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>GetAdAnalytics</arg>
+<arg>${Base_URL}</arg>
+<arg>headers=${access_token}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220123 18:23:00.691" level="INFO">Creating Session using : alias=GetAdAnalytics, url=https://api-analytics.amagi.tv/, headers={'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220123 18:23:00.691" endtime="20220123 18:23:00.692"/>
+</kw>
+<status status="PASS" starttime="20220123 18:23:00.689" endtime="20220123 18:23:00.692"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>GetAdAnalytics</arg>
+<arg>${customer_content_device_timezone_country_city_studio}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220123 18:23:01.195" level="INFO">GET Request : url=https://api-analytics.amagi.tv/api/v2?type=adAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;customerId=AMG00354&amp;contentId=l2y1uvq1&amp;country=United%20States&amp;city=Anderson&amp;timezone=US/Eastern&amp;deviceType=Smart%20TV&amp;deviceName=Google%20Chromecast&amp;studioName=grvtywm 
+ path_url=/api/v2?type=adAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;customerId=AMG00354&amp;contentId=l2y1uvq1&amp;country=United%20States&amp;city=Anderson&amp;timezone=US/Eastern&amp;deviceType=Smart%20TV&amp;deviceName=Google%20Chromecast&amp;studioName=grvtywm 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'} 
+ body=None 
+ </msg>
+<msg timestamp="20220123 18:23:01.195" level="INFO">GET Response : url=https://api-analytics.amagi.tv/api/v2?type=adAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;customerId=AMG00354&amp;contentId=l2y1uvq1&amp;country=United%20States&amp;city=Anderson&amp;timezone=US/Eastern&amp;deviceType=Smart%20TV&amp;deviceName=Google%20Chromecast&amp;studioName=grvtywm 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '473', 'Connection': 'keep-alive', 'Server': 'nginx', 'Date': 'Sun, 23 Jan 2022 12:53:01 GMT', 'Cache-Control': 'no-cache', 'Accept-Ranges': 'bytes', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains;', 'X-Frame-Options': 'DENY', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 a1c5333f71e097cfb7e83b364eae7f42.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-C2', 'X-Amz-Cf-Id': 'I0uJXE4G0Z5_xl4_UXPltMUY-UWLzEYrzoYiNietJv1NZomWHH3IiQ=='} 
+ body={"dateRange":{"startDate":"2021-10-10","endDate":"2021-10-21","interval":"DAILY","startTime":"00:00","endTime":"23:00"},"adAnalytics":[{"time":"2021-10-17 00:00:00","adOpportunitiesDetected":5461,"adRequestsSent":1,"adResponsesReceived":1,"adAssetsReceived":3,"impressionsRecorded":0,"conversionRate":0}],"totalAdOpportunitiesDetected":5461,"totalAdRequestsSent":1,"totalAdResponsesReceived":1,"totalAdAssetsReceived":3,"totalImpressionsRecorded":0,"totalConversionRate":0} 
+ </msg>
+<msg timestamp="20220123 18:23:01.195" level="INFO">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-analytics.amagi.tv'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220123 18:23:01.196" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220123 18:23:00.692" endtime="20220123 18:23:01.196"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 18:23:01.196" endtime="20220123 18:23:01.197"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 18:23:01.197" endtime="20220123 18:23:01.198"/>
+</kw>
+<tag>Regression</tag>
+<status status="PASS" starttime="20220123 18:23:00.688" endtime="20220123 18:23:01.198"/>
+</test>
+<test id="s1-t4" name="FilterUsing-DateRange_Channel_Content_Country_City_Timezone_Device_Studio">
+<kw name="Get Access Token with Base URL" library="GetAccessToken">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${access_token}</var>
+<arg>x-access-token=ab10a1c3-d1d6-477a-83bb-dc42cf167e62</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220123 18:23:01.199" level="INFO">${access_token} = {'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'}</msg>
+<status status="PASS" starttime="20220123 18:23:01.198" endtime="20220123 18:23:01.199"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>GetAdAnalytics</arg>
+<arg>${Base_URL}</arg>
+<arg>headers=${access_token}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220123 18:23:01.199" level="INFO">Creating Session using : alias=GetAdAnalytics, url=https://api-analytics.amagi.tv/, headers={'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220123 18:23:01.199" endtime="20220123 18:23:01.199"/>
+</kw>
+<status status="PASS" starttime="20220123 18:23:01.198" endtime="20220123 18:23:01.199"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>GetAdAnalytics</arg>
+<arg>${channel_content_device_timezone_country_city_studio}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220123 18:23:01.502" level="INFO">GET Request : url=https://api-analytics.amagi.tv/api/v2?type=adAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;channelId=outsidetv-outsidetv-vizio&amp;contentId=l2y1uvq1&amp;country=United%20States&amp;city=Anderson&amp;timezone=US/Eastern&amp;deviceType=Smart%20TV&amp;deviceName=Google%20Chromecast&amp;studioName=grvtywm 
+ path_url=/api/v2?type=adAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;channelId=outsidetv-outsidetv-vizio&amp;contentId=l2y1uvq1&amp;country=United%20States&amp;city=Anderson&amp;timezone=US/Eastern&amp;deviceType=Smart%20TV&amp;deviceName=Google%20Chromecast&amp;studioName=grvtywm 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'} 
+ body=None 
+ </msg>
+<msg timestamp="20220123 18:23:01.503" level="INFO">GET Response : url=https://api-analytics.amagi.tv/api/v2?type=adAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;channelId=outsidetv-outsidetv-vizio&amp;contentId=l2y1uvq1&amp;country=United%20States&amp;city=Anderson&amp;timezone=US/Eastern&amp;deviceType=Smart%20TV&amp;deviceName=Google%20Chromecast&amp;studioName=grvtywm 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '473', 'Connection': 'keep-alive', 'Server': 'nginx', 'Date': 'Sun, 23 Jan 2022 12:53:01 GMT', 'Cache-Control': 'no-cache', 'Accept-Ranges': 'bytes', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains;', 'X-Frame-Options': 'DENY', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 3d8bb11892e13028a44d2770147560ba.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-C2', 'X-Amz-Cf-Id': '9JPSPrfvQXd5N2p6AI94VBzf9jsrM4IjMXiyMDQ5PYx3ZwxQ3ZjH9Q=='} 
+ body={"dateRange":{"startDate":"2021-10-10","endDate":"2021-10-21","interval":"DAILY","startTime":"00:00","endTime":"23:00"},"adAnalytics":[{"time":"2021-10-17 00:00:00","adOpportunitiesDetected":5461,"adRequestsSent":1,"adResponsesReceived":1,"adAssetsReceived":3,"impressionsRecorded":0,"conversionRate":0}],"totalAdOpportunitiesDetected":5461,"totalAdRequestsSent":1,"totalAdResponsesReceived":1,"totalAdAssetsReceived":3,"totalImpressionsRecorded":0,"totalConversionRate":0} 
+ </msg>
+<msg timestamp="20220123 18:23:01.503" level="INFO">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-analytics.amagi.tv'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220123 18:23:01.503" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220123 18:23:01.200" endtime="20220123 18:23:01.503"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 18:23:01.503" endtime="20220123 18:23:01.505"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 18:23:01.505" endtime="20220123 18:23:01.507"/>
+</kw>
+<tag>Regression</tag>
+<status status="PASS" starttime="20220123 18:23:01.198" endtime="20220123 18:23:01.507"/>
+</test>
+<test id="s1-t5" name="FilterUsing-DateRange_AdTag_Channel_Content_Country_City_Timezone_Device">
+<kw name="Get Access Token with Base URL" library="GetAccessToken">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${access_token}</var>
+<arg>x-access-token=ab10a1c3-d1d6-477a-83bb-dc42cf167e62</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220123 18:23:01.509" level="INFO">${access_token} = {'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'}</msg>
+<status status="PASS" starttime="20220123 18:23:01.509" endtime="20220123 18:23:01.509"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>GetAdAnalytics</arg>
+<arg>${Base_URL}</arg>
+<arg>headers=${access_token}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220123 18:23:01.510" level="INFO">Creating Session using : alias=GetAdAnalytics, url=https://api-analytics.amagi.tv/, headers={'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220123 18:23:01.509" endtime="20220123 18:23:01.510"/>
+</kw>
+<status status="PASS" starttime="20220123 18:23:01.508" endtime="20220123 18:23:01.511"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>GetAdAnalytics</arg>
+<arg>${channel_content_device_timezone_country_city_adtag}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220123 18:23:01.809" level="INFO">GET Request : url=https://api-analytics.amagi.tv/api/v2?type=adAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;customerId=AMG01412&amp;channelId=amg01546-ftv-fashiontv-xiaomi&amp;country=China&amp;city=Beijing&amp;timezone=US/Pacific&amp;deviceType=Others&amp;deviceName=Others&amp;adTag=SS 
+ path_url=/api/v2?type=adAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;customerId=AMG01412&amp;channelId=amg01546-ftv-fashiontv-xiaomi&amp;country=China&amp;city=Beijing&amp;timezone=US/Pacific&amp;deviceType=Others&amp;deviceName=Others&amp;adTag=SS 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'} 
+ body=None 
+ </msg>
+<msg timestamp="20220123 18:23:01.810" level="INFO">GET Response : url=https://api-analytics.amagi.tv/api/v2?type=adAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;customerId=AMG01412&amp;channelId=amg01546-ftv-fashiontv-xiaomi&amp;country=China&amp;city=Beijing&amp;timezone=US/Pacific&amp;deviceType=Others&amp;deviceName=Others&amp;adTag=SS 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '663', 'Connection': 'keep-alive', 'Server': 'nginx', 'Date': 'Sun, 23 Jan 2022 12:53:01 GMT', 'Cache-Control': 'no-cache', 'Accept-Ranges': 'bytes', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains;', 'X-Frame-Options': 'DENY', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 5c891f7b61b5e0dea14ae01c984bd740.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-C2', 'X-Amz-Cf-Id': 'ljwXBZWzORMvq3mmEHcVa_myCDrogytpGyGVL9wO7VujjOuIPkcV3g=='} 
+ body={"dateRange":{"startDate":"2021-10-10","endDate":"2021-10-21","interval":"DAILY","startTime":"00:00","endTime":"23:00"},"adAnalytics":[{"time":"2021-10-20 00:00:00","adOpportunitiesDetected":3,"adRequestsSent":1,"adResponsesReceived":1,"adAssetsReceived":1,"impressionsRecorded":0,"conversionRate":0},{"time":"2021-10-21 00:00:00","adOpportunitiesDetected":24,"adRequestsSent":13,"adResponsesReceived":13,"adAssetsReceived":16,"impressionsRecorded":13,"conversionRate":81.25}],"totalAdOpportunitiesDetected":27,"totalAdRequestsSent":14,"totalAdResponsesReceived":14,"totalAdAssetsReceived":17,"totalImpressionsRecorded":13,"totalConversionRate":76.47058823529412} 
+ </msg>
+<msg timestamp="20220123 18:23:01.810" level="INFO">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-analytics.amagi.tv'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220123 18:23:01.810" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220123 18:23:01.511" endtime="20220123 18:23:01.810"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 18:23:01.811" endtime="20220123 18:23:01.812"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 18:23:01.812" endtime="20220123 18:23:01.813"/>
+</kw>
+<tag>Regression</tag>
+<status status="PASS" starttime="20220123 18:23:01.507" endtime="20220123 18:23:01.813"/>
+</test>
+<status status="PASS" starttime="20220123 18:22:59.545" endtime="20220123 18:23:01.813"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="5" fail="0" skip="0">Regression</stat>
+</tag>
+<suite>
+<stat pass="5" fail="0" skip="0" id="s1" name="AdAnalyticsAPI">AdAnalyticsAPI</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
