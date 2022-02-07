@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.8.10 on linux)" generated="20220127 12:44:16.084" rpa="false" schemaversion="2">
+<suite id="s1" name="WeeklyUniqueViewersAPI" source="/home/sumankumars/PycharmProjects/RoboatAPIAutomation/TestCases/UniqueViewers/Weekly/WeeklyUniqueViewersAPI.robot">
+<test id="s1-t1" name="FilterUsing-DateRange_CustomerId">
+<kw name="Get Access Token with Base URL for UniqueViewers" library="GetAccessToken">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${access_token}</var>
+<arg>x-access-token=ab10a1c3-d1d6-477a-83bb-dc42cf167e62</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220127 12:44:16.192" level="INFO">${access_token} = {'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'}</msg>
+<status status="PASS" starttime="20220127 12:44:16.192" endtime="20220127 12:44:16.192"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>GetUniqueViewers</arg>
+<arg>${Base_URL}</arg>
+<arg>headers=${access_token}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220127 12:44:16.192" level="INFO">Creating Session using : alias=GetUniqueViewers, url=https://api-analytics.amagi.tv/, headers={'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220127 12:44:16.192" endtime="20220127 12:44:16.193"/>
+</kw>
+<status status="PASS" starttime="20220127 12:44:16.191" endtime="20220127 12:44:16.193"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>GetUniqueViewers</arg>
+<arg>${customer}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220127 12:44:16.887" level="INFO">GET Request : url=https://api-analytics.amagi.tv/api/v2?type=uniqueViewersAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-16&amp;interval=WEEKLY&amp;customerId=AMG00432 
+ path_url=/api/v2?type=uniqueViewersAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-16&amp;interval=WEEKLY&amp;customerId=AMG00432 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'} 
+ body=None 
+ </msg>
+<msg timestamp="20220127 12:44:16.888" level="INFO">GET Response : url=https://api-analytics.amagi.tv/api/v2?type=uniqueViewersAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-16&amp;interval=WEEKLY&amp;customerId=AMG00432 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '895', 'Connection': 'keep-alive', 'Server': 'nginx', 'Date': 'Thu, 27 Jan 2022 07:14:16 GMT', 'Cache-Control': 'no-cache', 'Accept-Ranges': 'bytes', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains;', 'X-Frame-Options': 'DENY', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 dfccb338f8c0489ab09835ea7dbad1a8.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'MAA51-P1', 'X-Amz-Cf-Id': 'xBVoqBwKgRsf_U1JFWatlmfCOXb-mrGpGCw6Wd6zWXWu4AEIn3yJsQ=='} 
+ body={"weeklyUniqueViewers":386058,"weeklyAvgSessionPerViewer":2.41,"weeklyAvgSessionDurationPerViewer":10.96,"uniqueViewerAnalytics":[{"time":"2021-10-10 00:00:00","uniqueViewers":104166,"sessionPerViewer":1.65,"sessionDurationPerViewer":7.69},{"time":"2021-10-11 00:00:00","uniqueViewers":76620,"sessionPerViewer":1.71,"sessionDurationPerViewer":8.89},{"time":"2021-10-12 00:00:00","uniqueViewers":69734,"sessionPerViewer":1.74,"sessionDurationPerViewer":8.56},{"time":"2021-10-13 00:00:00","uniqueViewers":66765,"sessionPerViewer":1.69,"sessionDurationPerViewer":6.35},{"time":"2021-10-14 00:00:00","uniqueViewers":66594,"sessionPerViewer":1.68,"sessionDurationPerViewer":5.74},{"time":"2021-10-15 00:00:00","uniqueViewers":72563,"sessionPerViewer":1.72,"sessionDurationPerViewer":7.32},{"time":"2021-10-16 00:00:00","uniqueViewers":92178,"sessionPerViewer":1.71,"sessionDurationPerViewer":8.82}]} 
+ </msg>
+<msg timestamp="20220127 12:44:16.888" level="INFO">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-analytics.amagi.tv'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220127 12:44:16.888" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220127 12:44:16.193" endtime="20220127 12:44:16.888"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220127 12:44:16.888" endtime="20220127 12:44:16.891"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220127 12:44:16.891" endtime="20220127 12:44:16.892"/>
+</kw>
+<tag>Sanity</tag>
+<status status="PASS" starttime="20220127 12:44:16.191" endtime="20220127 12:44:16.892"/>
+</test>
+<test id="s1-t2" name="FilterUsing-DateRange_ChannelId">
+<kw name="Get Access Token with Base URL for UniqueViewers" library="GetAccessToken">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${access_token}</var>
+<arg>x-access-token=ab10a1c3-d1d6-477a-83bb-dc42cf167e62</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220127 12:44:16.895" level="INFO">${access_token} = {'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'}</msg>
+<status status="PASS" starttime="20220127 12:44:16.894" endtime="20220127 12:44:16.895"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>GetUniqueViewers</arg>
+<arg>${Base_URL}</arg>
+<arg>headers=${access_token}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220127 12:44:16.895" level="INFO">Creating Session using : alias=GetUniqueViewers, url=https://api-analytics.amagi.tv/, headers={'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220127 12:44:16.895" endtime="20220127 12:44:16.896"/>
+</kw>
+<status status="PASS" starttime="20220127 12:44:16.894" endtime="20220127 12:44:16.896"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>GetUniqueViewers</arg>
+<arg>${channel}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220127 12:44:17.194" level="INFO">GET Request : url=https://api-analytics.amagi.tv/api/v2?type=uniqueViewersAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-16&amp;interval=WEEKLY&amp;channelId=amg00432-circle-circle-rokuus 
+ path_url=/api/v2?type=uniqueViewersAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-16&amp;interval=WEEKLY&amp;channelId=amg00432-circle-circle-rokuus 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'} 
+ body=None 
+ </msg>
+<msg timestamp="20220127 12:44:17.194" level="INFO">GET Response : url=https://api-analytics.amagi.tv/api/v2?type=uniqueViewersAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-16&amp;interval=WEEKLY&amp;channelId=amg00432-circle-circle-rokuus 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '895', 'Connection': 'keep-alive', 'Server': 'nginx', 'Date': 'Thu, 27 Jan 2022 07:14:17 GMT', 'Cache-Control': 'no-cache', 'Accept-Ranges': 'bytes', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains;', 'X-Frame-Options': 'DENY', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 906a1b4db80ee4324a0fed1d684a2fb8.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'MAA51-P1', 'X-Amz-Cf-Id': '5W6KKDAWNDrH28E4aWYE31Ki3SZufhKK-mLlY3AEP5rhJW4zo7J9OA=='} 
+ body={"weeklyUniqueViewers":386019,"weeklyAvgSessionPerViewer":2.41,"weeklyAvgSessionDurationPerViewer":10.96,"uniqueViewerAnalytics":[{"time":"2021-10-10 00:00:00","uniqueViewers":104155,"sessionPerViewer":1.65,"sessionDurationPerViewer":7.69},{"time":"2021-10-11 00:00:00","uniqueViewers":76614,"sessionPerViewer":1.71,"sessionDurationPerViewer":8.89},{"time":"2021-10-12 00:00:00","uniqueViewers":69727,"sessionPerViewer":1.74,"sessionDurationPerViewer":8.56},{"time":"2021-10-13 00:00:00","uniqueViewers":66758,"sessionPerViewer":1.69,"sessionDurationPerViewer":6.35},{"time":"2021-10-14 00:00:00","uniqueViewers":66586,"sessionPerViewer":1.68,"sessionDurationPerViewer":5.74},{"time":"2021-10-15 00:00:00","uniqueViewers":72556,"sessionPerViewer":1.72,"sessionDurationPerViewer":7.32},{"time":"2021-10-16 00:00:00","uniqueViewers":92176,"sessionPerViewer":1.71,"sessionDurationPerViewer":8.82}]} 
+ </msg>
+<msg timestamp="20220127 12:44:17.194" level="INFO">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-analytics.amagi.tv'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220127 12:44:17.195" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220127 12:44:16.896" endtime="20220127 12:44:17.195"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220127 12:44:17.195" endtime="20220127 12:44:17.196"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220127 12:44:17.197" endtime="20220127 12:44:17.198"/>
+</kw>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20220127 12:44:16.893" endtime="20220127 12:44:17.198"/>
+</test>
+<test id="s1-t3" name="FilterUsing-DateRange_Customer_ChannelId">
+<kw name="Get Access Token with Base URL for UniqueViewers" library="GetAccessToken">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${access_token}</var>
+<arg>x-access-token=ab10a1c3-d1d6-477a-83bb-dc42cf167e62</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220127 12:44:17.200" level="INFO">${access_token} = {'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'}</msg>
+<status status="PASS" starttime="20220127 12:44:17.200" endtime="20220127 12:44:17.200"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>GetUniqueViewers</arg>
+<arg>${Base_URL}</arg>
+<arg>headers=${access_token}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220127 12:44:17.201" level="INFO">Creating Session using : alias=GetUniqueViewers, url=https://api-analytics.amagi.tv/, headers={'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220127 12:44:17.200" endtime="20220127 12:44:17.201"/>
+</kw>
+<status status="PASS" starttime="20220127 12:44:17.199" endtime="20220127 12:44:17.202"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>GetUniqueViewers</arg>
+<arg>${customer_channel}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220127 12:44:17.501" level="INFO">GET Request : url=https://api-analytics.amagi.tv/api/v2?type=uniqueViewersAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-16&amp;interval=WEEKLY&amp;channelId=amg00432-circle-circle-rokuus&amp;customerId=AMG00432 
+ path_url=/api/v2?type=uniqueViewersAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-16&amp;interval=WEEKLY&amp;channelId=amg00432-circle-circle-rokuus&amp;customerId=AMG00432 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'} 
+ body=None 
+ </msg>
+<msg timestamp="20220127 12:44:17.502" level="INFO">GET Response : url=https://api-analytics.amagi.tv/api/v2?type=uniqueViewersAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-16&amp;interval=WEEKLY&amp;channelId=amg00432-circle-circle-rokuus&amp;customerId=AMG00432 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '895', 'Connection': 'keep-alive', 'Server': 'nginx', 'Date': 'Thu, 27 Jan 2022 07:14:17 GMT', 'Cache-Control': 'no-cache', 'Accept-Ranges': 'bytes', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains;', 'X-Frame-Options': 'DENY', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 5658c4f258eecb6844e61ba6f802b9ce.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'MAA51-P1', 'X-Amz-Cf-Id': 'WySxUdKTMII3SMnVUNh0tBLig-RPj5PrlXv2E79sbqmnJqRf0aepug=='} 
+ body={"weeklyUniqueViewers":386019,"weeklyAvgSessionPerViewer":2.41,"weeklyAvgSessionDurationPerViewer":10.96,"uniqueViewerAnalytics":[{"time":"2021-10-10 00:00:00","uniqueViewers":104155,"sessionPerViewer":1.65,"sessionDurationPerViewer":7.69},{"time":"2021-10-11 00:00:00","uniqueViewers":76614,"sessionPerViewer":1.71,"sessionDurationPerViewer":8.89},{"time":"2021-10-12 00:00:00","uniqueViewers":69727,"sessionPerViewer":1.74,"sessionDurationPerViewer":8.56},{"time":"2021-10-13 00:00:00","uniqueViewers":66758,"sessionPerViewer":1.69,"sessionDurationPerViewer":6.35},{"time":"2021-10-14 00:00:00","uniqueViewers":66586,"sessionPerViewer":1.68,"sessionDurationPerViewer":5.74},{"time":"2021-10-15 00:00:00","uniqueViewers":72556,"sessionPerViewer":1.72,"sessionDurationPerViewer":7.32},{"time":"2021-10-16 00:00:00","uniqueViewers":92176,"sessionPerViewer":1.71,"sessionDurationPerViewer":8.82}]} 
+ </msg>
+<msg timestamp="20220127 12:44:17.502" level="INFO">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-analytics.amagi.tv'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220127 12:44:17.502" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220127 12:44:17.202" endtime="20220127 12:44:17.502"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220127 12:44:17.502" endtime="20220127 12:44:17.504"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220127 12:44:17.504" endtime="20220127 12:44:17.505"/>
+</kw>
+<tag>Sanity</tag>
+<status status="PASS" starttime="20220127 12:44:17.199" endtime="20220127 12:44:17.505"/>
+</test>
+<test id="s1-t4" name="FilterUsing-DateRange_Channel_Timezone">
+<kw name="Get Access Token with Base URL for UniqueViewers" library="GetAccessToken">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${access_token}</var>
+<arg>x-access-token=ab10a1c3-d1d6-477a-83bb-dc42cf167e62</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220127 12:44:17.507" level="INFO">${access_token} = {'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'}</msg>
+<status status="PASS" starttime="20220127 12:44:17.507" endtime="20220127 12:44:17.508"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>GetUniqueViewers</arg>
+<arg>${Base_URL}</arg>
+<arg>headers=${access_token}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220127 12:44:17.508" level="INFO">Creating Session using : alias=GetUniqueViewers, url=https://api-analytics.amagi.tv/, headers={'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220127 12:44:17.508" endtime="20220127 12:44:17.509"/>
+</kw>
+<status status="PASS" starttime="20220127 12:44:17.506" endtime="20220127 12:44:17.509"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>GetUniqueViewers</arg>
+<arg>${channel_timezone}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220127 12:44:17.808" level="INFO">GET Request : url=https://api-analytics.amagi.tv/api/v2?type=uniqueViewersAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-16&amp;interval=WEEKLY&amp;channelId=amg00432-circle-circle-rokuus&amp;timezone=US/Pacific 
+ path_url=/api/v2?type=uniqueViewersAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-16&amp;interval=WEEKLY&amp;channelId=amg00432-circle-circle-rokuus&amp;timezone=US/Pacific 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'} 
+ body=None 
+ </msg>
+<msg timestamp="20220127 12:44:17.809" level="INFO">GET Response : url=https://api-analytics.amagi.tv/api/v2?type=uniqueViewersAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-16&amp;interval=WEEKLY&amp;channelId=amg00432-circle-circle-rokuus&amp;timezone=US/Pacific 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '895', 'Connection': 'keep-alive', 'Server': 'nginx', 'Date': 'Thu, 27 Jan 2022 07:14:17 GMT', 'Cache-Control': 'no-cache', 'Accept-Ranges': 'bytes', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains;', 'X-Frame-Options': 'DENY', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 957cf26246f54280f08550abee12d72c.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'MAA51-P1', 'X-Amz-Cf-Id': 'jEiTLiLOo9IJJQF6_U2k4nUEWMqfDdqyVZeVwM97Qe4jOg8lXh40PQ=='} 
+ body={"weeklyUniqueViewers":386019,"weeklyAvgSessionPerViewer":2.41,"weeklyAvgSessionDurationPerViewer":10.96,"uniqueViewerAnalytics":[{"time":"2021-10-10 00:00:00","uniqueViewers":104155,"sessionPerViewer":1.65,"sessionDurationPerViewer":7.69},{"time":"2021-10-11 00:00:00","uniqueViewers":76614,"sessionPerViewer":1.71,"sessionDurationPerViewer":8.89},{"time":"2021-10-12 00:00:00","uniqueViewers":69727,"sessionPerViewer":1.74,"sessionDurationPerViewer":8.56},{"time":"2021-10-13 00:00:00","uniqueViewers":66758,"sessionPerViewer":1.69,"sessionDurationPerViewer":6.35},{"time":"2021-10-14 00:00:00","uniqueViewers":66586,"sessionPerViewer":1.68,"sessionDurationPerViewer":5.74},{"time":"2021-10-15 00:00:00","uniqueViewers":72556,"sessionPerViewer":1.72,"sessionDurationPerViewer":7.32},{"time":"2021-10-16 00:00:00","uniqueViewers":92176,"sessionPerViewer":1.71,"sessionDurationPerViewer":8.82}]} 
+ </msg>
+<msg timestamp="20220127 12:44:17.809" level="INFO">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-analytics.amagi.tv'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220127 12:44:17.809" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220127 12:44:17.509" endtime="20220127 12:44:17.809"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220127 12:44:17.809" endtime="20220127 12:44:17.811"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220127 12:44:17.811" endtime="20220127 12:44:17.812"/>
+</kw>
+<tag>Sanity</tag>
+<status status="PASS" starttime="20220127 12:44:17.506" endtime="20220127 12:44:17.812"/>
+</test>
+<test id="s1-t5" name="FilterUsing-DateRange_Customer_Timezone">
+<kw name="Get Access Token with Base URL for UniqueViewers" library="GetAccessToken">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${access_token}</var>
+<arg>x-access-token=ab10a1c3-d1d6-477a-83bb-dc42cf167e62</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220127 12:44:17.814" level="INFO">${access_token} = {'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'}</msg>
+<status status="PASS" starttime="20220127 12:44:17.814" endtime="20220127 12:44:17.814"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>GetUniqueViewers</arg>
+<arg>${Base_URL}</arg>
+<arg>headers=${access_token}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220127 12:44:17.814" level="INFO">Creating Session using : alias=GetUniqueViewers, url=https://api-analytics.amagi.tv/, headers={'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220127 12:44:17.814" endtime="20220127 12:44:17.814"/>
+</kw>
+<status status="PASS" starttime="20220127 12:44:17.813" endtime="20220127 12:44:17.814"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>GetUniqueViewers</arg>
+<arg>${customer_timezone}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220127 12:44:18.218" level="INFO">GET Request : url=https://api-analytics.amagi.tv/api/v2?type=uniqueViewersAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-16&amp;interval=WEEKLY&amp;customerId=AMG00432&amp;timezone=US/Pacific 
+ path_url=/api/v2?type=uniqueViewersAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-16&amp;interval=WEEKLY&amp;customerId=AMG00432&amp;timezone=US/Pacific 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'} 
+ body=None 
+ </msg>
+<msg timestamp="20220127 12:44:18.218" level="INFO">GET Response : url=https://api-analytics.amagi.tv/api/v2?type=uniqueViewersAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-16&amp;interval=WEEKLY&amp;customerId=AMG00432&amp;timezone=US/Pacific 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '895', 'Connection': 'keep-alive', 'Server': 'nginx', 'Date': 'Thu, 27 Jan 2022 07:14:18 GMT', 'Cache-Control': 'no-cache', 'Accept-Ranges': 'bytes', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains;', 'X-Frame-Options': 'DENY', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 534b228d7da687f51d99c14ca2e26f52.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'MAA51-P1', 'X-Amz-Cf-Id': '4E4X4WPxZYdeaTZ8SAbz67xl5GXm1CBEftPht9VwOgF4dfpsFAjbDA=='} 
+ body={"weeklyUniqueViewers":386058,"weeklyAvgSessionPerViewer":2.41,"weeklyAvgSessionDurationPerViewer":10.96,"uniqueViewerAnalytics":[{"time":"2021-10-10 00:00:00","uniqueViewers":104166,"sessionPerViewer":1.65,"sessionDurationPerViewer":7.69},{"time":"2021-10-11 00:00:00","uniqueViewers":76620,"sessionPerViewer":1.71,"sessionDurationPerViewer":8.89},{"time":"2021-10-12 00:00:00","uniqueViewers":69734,"sessionPerViewer":1.74,"sessionDurationPerViewer":8.56},{"time":"2021-10-13 00:00:00","uniqueViewers":66765,"sessionPerViewer":1.69,"sessionDurationPerViewer":6.35},{"time":"2021-10-14 00:00:00","uniqueViewers":66594,"sessionPerViewer":1.68,"sessionDurationPerViewer":5.74},{"time":"2021-10-15 00:00:00","uniqueViewers":72563,"sessionPerViewer":1.72,"sessionDurationPerViewer":7.32},{"time":"2021-10-16 00:00:00","uniqueViewers":92178,"sessionPerViewer":1.71,"sessionDurationPerViewer":8.82}]} 
+ </msg>
+<msg timestamp="20220127 12:44:18.219" level="INFO">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-analytics.amagi.tv'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220127 12:44:18.219" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220127 12:44:17.814" endtime="20220127 12:44:18.219"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220127 12:44:18.219" endtime="20220127 12:44:18.221"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220127 12:44:18.221" endtime="20220127 12:44:18.222"/>
+</kw>
+<tag>Sanity</tag>
+<status status="PASS" starttime="20220127 12:44:17.813" endtime="20220127 12:44:18.223"/>
+</test>
+<test id="s1-t6" name="FilterUsing-DateRange_Customer_ChannelId_NotPassed">
+<kw name="Get Access Token with Base URL for UniqueViewers" library="GetAccessToken">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${access_token}</var>
+<arg>x-access-token=ab10a1c3-d1d6-477a-83bb-dc42cf167e62</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220127 12:44:18.225" level="INFO">${access_token} = {'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'}</msg>
+<status status="PASS" starttime="20220127 12:44:18.224" endtime="20220127 12:44:18.225"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>GetUniqueViewers</arg>
+<arg>${Base_URL}</arg>
+<arg>headers=${access_token}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220127 12:44:18.225" level="INFO">Creating Session using : alias=GetUniqueViewers, url=https://api-analytics.amagi.tv/, headers={'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220127 12:44:18.225" endtime="20220127 12:44:18.226"/>
+</kw>
+<status status="PASS" starttime="20220127 12:44:18.224" endtime="20220127 12:44:18.226"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>GetUniqueViewers</arg>
+<arg>${customer_channel_NotPassed}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220127 12:44:18.833" level="INFO">GET Request : url=https://api-analytics.amagi.tv/api/v2?type=uniqueViewersAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-16&amp;interval=WEEKLY&amp;timezone=US/Pacific 
+ path_url=/api/v2?type=uniqueViewersAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-16&amp;interval=WEEKLY&amp;timezone=US/Pacific 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'} 
+ body=None 
+ </msg>
+<msg timestamp="20220127 12:44:18.833" level="INFO">GET Response : url=https://api-analytics.amagi.tv/api/v2?type=uniqueViewersAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-16&amp;interval=WEEKLY&amp;timezone=US/Pacific 
+ status=422, reason=Unknown 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '111', 'Connection': 'keep-alive', 'Server': 'nginx', 'Date': 'Thu, 27 Jan 2022 07:14:18 GMT', 'Cache-Control': 'no-cache', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains;', 'X-Frame-Options': 'DENY', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 4841c48e3f483563ec0fc4492a91e892.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'MAA51-P1', 'X-Amz-Cf-Id': 'eQF8vSAfn5mur9jBN5w-53iYk3qO2dl2LSqKDvAcaUsBCBqjdADF7A=='} 
+ body={"statusCode":422,"error":"Unprocessable Entity","message":"customer_id or channel_id should be sent in query"} 
+ </msg>
+<msg timestamp="20220127 12:44:18.833" level="INFO">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-analytics.amagi.tv'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220127 12:44:18.835" level="FAIL">HTTPError: 422 Client Error: Unknown for url: https://api-analytics.amagi.tv/api/v2?type=uniqueViewersAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-16&amp;interval=WEEKLY&amp;timezone=US/Pacific</msg>
+<status status="FAIL" starttime="20220127 12:44:18.226" endtime="20220127 12:44:18.835"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220127 12:44:18.836" endtime="20220127 12:44:18.836"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220127 12:44:18.836" endtime="20220127 12:44:18.836"/>
+</kw>
+<tag>Sanity</tag>
+<status status="FAIL" starttime="20220127 12:44:18.223" endtime="20220127 12:44:18.837">HTTPError: 422 Client Error: Unknown for url: https://api-analytics.amagi.tv/api/v2?type=uniqueViewersAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-16&amp;interval=WEEKLY&amp;timezone=US/Pacific</status>
+</test>
+<test id="s1-t7" name="FilterUsing-DateRange_Channel_InvalidToken">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${access_token}</var>
+<arg>x-access-token=cd10a1c3-d1d6-477a-83bb-dc42cf167e62</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220127 12:44:18.839" level="INFO">${access_token} = {'x-access-token': 'cd10a1c3-d1d6-477a-83bb-dc42cf167e62'}</msg>
+<status status="PASS" starttime="20220127 12:44:18.838" endtime="20220127 12:44:18.839"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>GetUniqueViewers</arg>
+<arg>${Base_URL}</arg>
+<arg>headers=${access_token}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220127 12:44:18.840" level="INFO">Creating Session using : alias=GetUniqueViewers, url=https://api-analytics.amagi.tv/, headers={'x-access-token': 'cd10a1c3-d1d6-477a-83bb-dc42cf167e62'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220127 12:44:18.839" endtime="20220127 12:44:18.840"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>GetUniqueViewers</arg>
+<arg>${invalid_token}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220127 12:44:19.127" level="INFO">GET Request : url=https://api-analytics.amagi.tv/api/v2?type=uniqueViewersAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-16&amp;interval=WEEKLY&amp;channelId=amg00432-circle-circle-rokuus&amp;customerId=AMG00432 
+ path_url=/api/v2?type=uniqueViewersAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-16&amp;interval=WEEKLY&amp;channelId=amg00432-circle-circle-rokuus&amp;customerId=AMG00432 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-access-token': 'cd10a1c3-d1d6-477a-83bb-dc42cf167e62'} 
+ body=None 
+ </msg>
+<msg timestamp="20220127 12:44:19.128" level="INFO">GET Response : url=https://api-analytics.amagi.tv/api/v2?type=uniqueViewersAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-16&amp;interval=WEEKLY&amp;channelId=amg00432-circle-circle-rokuus&amp;customerId=AMG00432 
+ status=403, reason=Forbidden 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '78', 'Connection': 'keep-alive', 'Server': 'nginx', 'Date': 'Thu, 27 Jan 2022 07:14:19 GMT', 'Cache-Control': 'no-cache', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains;', 'X-Frame-Options': 'DENY', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 81763ad4c8f01d7ea80dc3b2ff9eb010.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'MAA51-P1', 'X-Amz-Cf-Id': 'YuWIE9Gdx9cI_la78AlfUadnPkE6IAecpvzRszVIRpRZKnVdSsqnaQ=='} 
+ body={"statusCode":403,"error":"Forbidden","message":"Invalid header access-token"} 
+ </msg>
+<msg timestamp="20220127 12:44:19.128" level="INFO">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-analytics.amagi.tv'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220127 12:44:19.129" level="FAIL">HTTPError: 403 Client Error: Forbidden for url: https://api-analytics.amagi.tv/api/v2?type=uniqueViewersAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-16&amp;interval=WEEKLY&amp;channelId=amg00432-circle-circle-rokuus&amp;customerId=AMG00432</msg>
+<status status="FAIL" starttime="20220127 12:44:18.840" endtime="20220127 12:44:19.129"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220127 12:44:19.129" endtime="20220127 12:44:19.130"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220127 12:44:19.130" endtime="20220127 12:44:19.130"/>
+</kw>
+<tag>Sanity</tag>
+<status status="FAIL" starttime="20220127 12:44:18.837" endtime="20220127 12:44:19.130">HTTPError: 403 Client Error: Forbidden for url: https://api-analytics.amagi.tv/api/v2?type=uniqueViewersAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-16&amp;interval=WEEKLY&amp;channelId=amg00432-circle-circle-rokuus&amp;customerId=AMG00432</status>
+</test>
+<status status="FAIL" starttime="20220127 12:44:16.084" endtime="20220127 12:44:19.132"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="4" fail="2" skip="0">Sanity</stat>
+<stat pass="1" fail="0" skip="0">Smoke</stat>
+</tag>
+<suite>
+<stat pass="5" fail="2" skip="0" id="s1" name="WeeklyUniqueViewersAPI">WeeklyUniqueViewersAPI</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

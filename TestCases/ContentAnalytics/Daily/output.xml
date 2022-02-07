@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.8.10 on linux)" generated="20220123 22:02:36.243" rpa="false" schemaversion="2">
+<suite id="s1" name="DailyContentAnalytics" source="/home/sumankumars/PycharmProjects/RoboatAPIAutomation/TestCases/ContentAnalytics/Daily/DailyContentAnalytics.robot">
+<test id="s1-t1" name="FilterUsing-DateRange_Customer_Content_Country_City_Timezone_Device">
+<kw name="Get Access Token with Base URL for Daily ContentAnalytics" library="GetAccessToken">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${access_token}</var>
+<arg>x-access-token=ab10a1c3-d1d6-477a-83bb-dc42cf167e62</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220123 22:02:36.340" level="INFO">${access_token} = {'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'}</msg>
+<status status="PASS" starttime="20220123 22:02:36.339" endtime="20220123 22:02:36.340"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>GetDailyContentAnalytics</arg>
+<arg>${Base_URL}</arg>
+<arg>headers=${access_token}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220123 22:02:36.340" level="INFO">Creating Session using : alias=GetDailyContentAnalytics, url=https://api-analytics.amagi.tv/, headers={'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220123 22:02:36.340" endtime="20220123 22:02:36.340"/>
+</kw>
+<status status="PASS" starttime="20220123 22:02:36.339" endtime="20220123 22:02:36.340"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>GetDailyContentAnalytics</arg>
+<arg>${customer_content_device_timezone_country_city}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220123 22:02:54.754" level="INFO">GET Request : url=https://api-analytics.amagi.tv/api/v2?type=contentAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;customerId=AMG00354&amp;contentId=l2y1uvq1&amp;country=United%20States&amp;city=Anderson&amp;timezone=US/Eastern&amp;deviceType=Smart%20TV&amp;deviceName=Google%20Chromecast 
+ path_url=/api/v2?type=contentAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;customerId=AMG00354&amp;contentId=l2y1uvq1&amp;country=United%20States&amp;city=Anderson&amp;timezone=US/Eastern&amp;deviceType=Smart%20TV&amp;deviceName=Google%20Chromecast 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'} 
+ body=None 
+ </msg>
+<msg timestamp="20220123 22:02:54.754" level="INFO">GET Response : url=https://api-analytics.amagi.tv/api/v2?type=contentAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;customerId=AMG00354&amp;contentId=l2y1uvq1&amp;country=United%20States&amp;city=Anderson&amp;timezone=US/Eastern&amp;deviceType=Smart%20TV&amp;deviceName=Google%20Chromecast 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '438', 'Connection': 'keep-alive', 'Server': 'nginx', 'Date': 'Sun, 23 Jan 2022 16:32:54 GMT', 'Cache-Control': 'no-cache', 'Accept-Ranges': 'bytes', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains;', 'X-Frame-Options': 'DENY', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 6c0225aca5d388c36fdeefd93f6b49aa.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-C2', 'X-Amz-Cf-Id': '_yuq1k9Ow8qF-BJyOckxiROGCLx40Kjylkx4vCAP0zfw_bJ9hvN1hA=='} 
+ body={"contentData":[{"date":"2021-10-12 00:00:00","contentId":"l2y1uvq1","contentName":"1966 Ski On The Wild Side - Mt. Zau Japan","studioName":"","seriesName":"","uniqueViewers":1,"totalSessions":1,"viewershipMinutes":0},{"date":"2021-10-17 00:00:00","contentId":"l2y1uvq1","contentName":"1966 Ski On The Wild Side - Mt. Zau Japan","studioName":"","seriesName":"","uniqueViewers":1,"totalSessions":1,"viewershipMinutes":0}],"contentCount":2} 
+ </msg>
+<msg timestamp="20220123 22:02:54.755" level="INFO">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-analytics.amagi.tv'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220123 22:02:54.755" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220123 22:02:36.340" endtime="20220123 22:02:54.755"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 22:02:54.755" endtime="20220123 22:02:54.756"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 22:02:54.757" endtime="20220123 22:02:54.758"/>
+</kw>
+<tag>Regression</tag>
+<status status="PASS" starttime="20220123 22:02:36.339" endtime="20220123 22:02:54.758"/>
+</test>
+<test id="s1-t2" name="FilterUsing-DateRange_Channel_Content_Country_City_Timezone_Device">
+<kw name="Get Access Token with Base URL for Daily ContentAnalytics" library="GetAccessToken">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${access_token}</var>
+<arg>x-access-token=ab10a1c3-d1d6-477a-83bb-dc42cf167e62</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220123 22:02:54.759" level="INFO">${access_token} = {'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'}</msg>
+<status status="PASS" starttime="20220123 22:02:54.759" endtime="20220123 22:02:54.759"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>GetDailyContentAnalytics</arg>
+<arg>${Base_URL}</arg>
+<arg>headers=${access_token}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220123 22:02:54.759" level="INFO">Creating Session using : alias=GetDailyContentAnalytics, url=https://api-analytics.amagi.tv/, headers={'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220123 22:02:54.759" endtime="20220123 22:02:54.759"/>
+</kw>
+<status status="PASS" starttime="20220123 22:02:54.759" endtime="20220123 22:02:54.760"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>GetDailyContentAnalytics</arg>
+<arg>${channel_content_device_timezone_country_city}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220123 22:02:55.164" level="INFO">GET Request : url=https://api-analytics.amagi.tv/api/v2?type=contentAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;channelId=outsidetv-outsidetv-vizio&amp;contentId=l2y1uvq1&amp;country=United%20States&amp;city=Anderson&amp;timezone=US/Eastern&amp;deviceType=Smart%20TV&amp;deviceName=Google%20Chromecast 
+ path_url=/api/v2?type=contentAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;channelId=outsidetv-outsidetv-vizio&amp;contentId=l2y1uvq1&amp;country=United%20States&amp;city=Anderson&amp;timezone=US/Eastern&amp;deviceType=Smart%20TV&amp;deviceName=Google%20Chromecast 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'} 
+ body=None 
+ </msg>
+<msg timestamp="20220123 22:02:55.164" level="INFO">GET Response : url=https://api-analytics.amagi.tv/api/v2?type=contentAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;channelId=outsidetv-outsidetv-vizio&amp;contentId=l2y1uvq1&amp;country=United%20States&amp;city=Anderson&amp;timezone=US/Eastern&amp;deviceType=Smart%20TV&amp;deviceName=Google%20Chromecast 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '438', 'Connection': 'keep-alive', 'Server': 'nginx', 'Date': 'Sun, 23 Jan 2022 16:32:55 GMT', 'Cache-Control': 'no-cache', 'Accept-Ranges': 'bytes', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains;', 'X-Frame-Options': 'DENY', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 b0f99b25efb683fdf604972746ceea86.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-C2', 'X-Amz-Cf-Id': 'TVS_mCvLHIwLZGWazkLGbEtCsJAstoM12GPGEFaelBgQhA5pEJYTrw=='} 
+ body={"contentData":[{"date":"2021-10-12 00:00:00","contentId":"l2y1uvq1","contentName":"1966 Ski On The Wild Side - Mt. Zau Japan","studioName":"","seriesName":"","uniqueViewers":1,"totalSessions":1,"viewershipMinutes":0},{"date":"2021-10-17 00:00:00","contentId":"l2y1uvq1","contentName":"1966 Ski On The Wild Side - Mt. Zau Japan","studioName":"","seriesName":"","uniqueViewers":1,"totalSessions":1,"viewershipMinutes":0}],"contentCount":2} 
+ </msg>
+<msg timestamp="20220123 22:02:55.164" level="INFO">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-analytics.amagi.tv'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220123 22:02:55.164" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220123 22:02:54.760" endtime="20220123 22:02:55.164"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 22:02:55.165" endtime="20220123 22:02:55.166"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 22:02:55.166" endtime="20220123 22:02:55.168"/>
+</kw>
+<tag>Regression</tag>
+<status status="PASS" starttime="20220123 22:02:54.758" endtime="20220123 22:02:55.168"/>
+</test>
+<test id="s1-t3" name="FilterUsing-DateRange_Customer_Content_Country_City_Timezone_Device_Studio">
+<kw name="Get Access Token with Base URL for Daily ContentAnalytics" library="GetAccessToken">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${access_token}</var>
+<arg>x-access-token=ab10a1c3-d1d6-477a-83bb-dc42cf167e62</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220123 22:02:55.170" level="INFO">${access_token} = {'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'}</msg>
+<status status="PASS" starttime="20220123 22:02:55.170" endtime="20220123 22:02:55.170"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>GetDailyContentAnalytics</arg>
+<arg>${Base_URL}</arg>
+<arg>headers=${access_token}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220123 22:02:55.171" level="INFO">Creating Session using : alias=GetDailyContentAnalytics, url=https://api-analytics.amagi.tv/, headers={'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220123 22:02:55.171" endtime="20220123 22:02:55.172"/>
+</kw>
+<status status="PASS" starttime="20220123 22:02:55.169" endtime="20220123 22:02:55.172"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>GetDailyContentAnalytics</arg>
+<arg>${customer_content_device_timezone_country_city_studio}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220123 22:02:56.188" level="INFO">GET Request : url=https://api-analytics.amagi.tv/api/v2?type=contentAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;customerId=AMG00354&amp;contentId=l2y1uvq1&amp;country=United%20States&amp;city=Anderson&amp;timezone=US/Eastern&amp;deviceType=Smart%20TV&amp;deviceName=Google%20Chromecast&amp;studioName=grvtywm 
+ path_url=/api/v2?type=contentAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;customerId=AMG00354&amp;contentId=l2y1uvq1&amp;country=United%20States&amp;city=Anderson&amp;timezone=US/Eastern&amp;deviceType=Smart%20TV&amp;deviceName=Google%20Chromecast&amp;studioName=grvtywm 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'} 
+ body=None 
+ </msg>
+<msg timestamp="20220123 22:02:56.188" level="INFO">GET Response : url=https://api-analytics.amagi.tv/api/v2?type=contentAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;customerId=AMG00354&amp;contentId=l2y1uvq1&amp;country=United%20States&amp;city=Anderson&amp;timezone=US/Eastern&amp;deviceType=Smart%20TV&amp;deviceName=Google%20Chromecast&amp;studioName=grvtywm 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '452', 'Connection': 'keep-alive', 'Server': 'nginx', 'Date': 'Sun, 23 Jan 2022 16:32:56 GMT', 'Cache-Control': 'no-cache', 'Accept-Ranges': 'bytes', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains;', 'X-Frame-Options': 'DENY', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 16e4fe28d7d0b7fd864bda8f7b36914c.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-C2', 'X-Amz-Cf-Id': 'IL7E3TX2kFiz3l4e2Llr9M3YuGkejrGWi7M_06LHEwYb2GXbmZCplw=='} 
+ body={"contentData":[{"date":"2021-10-12 00:00:00","contentId":"l2y1uvq1","contentName":"1966 Ski On The Wild Side - Mt. Zau Japan","studioName":"grvtywm","seriesName":"","uniqueViewers":1,"totalSessions":1,"viewershipMinutes":0},{"date":"2021-10-17 00:00:00","contentId":"l2y1uvq1","contentName":"1966 Ski On The Wild Side - Mt. Zau Japan","studioName":"grvtywm","seriesName":"","uniqueViewers":1,"totalSessions":1,"viewershipMinutes":0}],"contentCount":2} 
+ </msg>
+<msg timestamp="20220123 22:02:56.188" level="INFO">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-analytics.amagi.tv'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220123 22:02:56.189" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220123 22:02:55.172" endtime="20220123 22:02:56.189"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 22:02:56.189" endtime="20220123 22:02:56.190"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 22:02:56.191" endtime="20220123 22:02:56.191"/>
+</kw>
+<tag>Regression</tag>
+<status status="PASS" starttime="20220123 22:02:55.169" endtime="20220123 22:02:56.191"/>
+</test>
+<test id="s1-t4" name="FilterUsing-DateRange_Channel_Content_Country_City_Timezone_Device_Studio">
+<kw name="Get Access Token with Base URL for Daily ContentAnalytics" library="GetAccessToken">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${access_token}</var>
+<arg>x-access-token=ab10a1c3-d1d6-477a-83bb-dc42cf167e62</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220123 22:02:56.192" level="INFO">${access_token} = {'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'}</msg>
+<status status="PASS" starttime="20220123 22:02:56.192" endtime="20220123 22:02:56.192"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>GetDailyContentAnalytics</arg>
+<arg>${Base_URL}</arg>
+<arg>headers=${access_token}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220123 22:02:56.192" level="INFO">Creating Session using : alias=GetDailyContentAnalytics, url=https://api-analytics.amagi.tv/, headers={'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220123 22:02:56.192" endtime="20220123 22:02:56.193"/>
+</kw>
+<status status="PASS" starttime="20220123 22:02:56.192" endtime="20220123 22:02:56.193"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>GetDailyContentAnalytics</arg>
+<arg>${channel_content_device_timezone_country_city_studio}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220123 22:02:56.597" level="INFO">GET Request : url=https://api-analytics.amagi.tv/api/v2?type=contentAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;channelId=outsidetv-outsidetv-vizio&amp;contentId=l2y1uvq1&amp;country=United%20States&amp;city=Anderson&amp;timezone=US/Eastern&amp;deviceType=Smart%20TV&amp;deviceName=Google%20Chromecast&amp;studioName=grvtywm 
+ path_url=/api/v2?type=contentAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;channelId=outsidetv-outsidetv-vizio&amp;contentId=l2y1uvq1&amp;country=United%20States&amp;city=Anderson&amp;timezone=US/Eastern&amp;deviceType=Smart%20TV&amp;deviceName=Google%20Chromecast&amp;studioName=grvtywm 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-access-token': 'ab10a1c3-d1d6-477a-83bb-dc42cf167e62'} 
+ body=None 
+ </msg>
+<msg timestamp="20220123 22:02:56.597" level="INFO">GET Response : url=https://api-analytics.amagi.tv/api/v2?type=contentAnalytics&amp;startDate=2021-10-10&amp;endDate=2021-10-21&amp;interval=DAILY&amp;channelId=outsidetv-outsidetv-vizio&amp;contentId=l2y1uvq1&amp;country=United%20States&amp;city=Anderson&amp;timezone=US/Eastern&amp;deviceType=Smart%20TV&amp;deviceName=Google%20Chromecast&amp;studioName=grvtywm 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '452', 'Connection': 'keep-alive', 'Server': 'nginx', 'Date': 'Sun, 23 Jan 2022 16:32:56 GMT', 'Cache-Control': 'no-cache', 'Accept-Ranges': 'bytes', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains;', 'X-Frame-Options': 'DENY', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 e4e5fd6c9fb0d147c5f370d2de163bbc.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-C2', 'X-Amz-Cf-Id': 's5LCcZIjfpDbWcJxPXX05yhJ-VmVbABLVVJ8sSJdxFPMYLce1B047g=='} 
+ body={"contentData":[{"date":"2021-10-12 00:00:00","contentId":"l2y1uvq1","contentName":"1966 Ski On The Wild Side - Mt. Zau Japan","studioName":"grvtywm","seriesName":"","uniqueViewers":1,"totalSessions":1,"viewershipMinutes":0},{"date":"2021-10-17 00:00:00","contentId":"l2y1uvq1","contentName":"1966 Ski On The Wild Side - Mt. Zau Japan","studioName":"grvtywm","seriesName":"","uniqueViewers":1,"totalSessions":1,"viewershipMinutes":0}],"contentCount":2} 
+ </msg>
+<msg timestamp="20220123 22:02:56.598" level="INFO">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-analytics.amagi.tv'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220123 22:02:56.598" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220123 22:02:56.193" endtime="20220123 22:02:56.598"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 22:02:56.598" endtime="20220123 22:02:56.600"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220123 22:02:56.600" endtime="20220123 22:02:56.601"/>
+</kw>
+<tag>Regression</tag>
+<status status="PASS" starttime="20220123 22:02:56.191" endtime="20220123 22:02:56.601"/>
+</test>
+<status status="PASS" starttime="20220123 22:02:36.243" endtime="20220123 22:02:56.603"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="4" fail="0" skip="0">Regression</stat>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="DailyContentAnalytics">DailyContentAnalytics</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
